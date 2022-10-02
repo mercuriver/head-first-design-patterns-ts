@@ -20,5 +20,4 @@ const flyMessages = {
 };
 
 export { announceMessages, quackMessages, flyMessages };
-
 export default defaultMessages;

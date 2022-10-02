@@ -8,8 +8,7 @@ import defaultMessage, {
 
 import { MallardDuck, ModelDuck } from "./Ducks";
 import { FlyRocketPowered } from "./FlyBehavior";
-
-class QuackMuted {}
+import { MuteQuack } from "./QuackBehavior";
 
 let seq = 1;
 describe(`[${seq++}] 물오리 테스트`, function () {
@@ -46,7 +45,7 @@ describe(`[${seq++}] 모형 오리 테스트`, function () {
   });
 
   it("꽥꽥 방식 변경", function () {
-    duck.setQuackBehavior(new QuackMuted());
+    duck.setQuackBehavior(new MuteQuack());
     expect(duck.performQuack()).to.equal(quackMessages.mute_quack);
   });
 
