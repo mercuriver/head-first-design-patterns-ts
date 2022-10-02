@@ -1,4 +1,5 @@
-import defaultMessage from "./index.meta";
+import defaultMessage from "../index.meta";
+
 abstract class Duck {
   #flyBehavior: any;
   #quackBehavior: any;

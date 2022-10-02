@@ -1,6 +1,6 @@
 import Duck from "./Duck";
+import { mallardDuck } from "../index.meta";
 
-import { mallardDuck } from "./index.meta";
 class MallardDuck extends Duck {
   constructor() {
     super();
