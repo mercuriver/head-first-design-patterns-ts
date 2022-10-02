@@ -7,9 +7,9 @@ import defaultMessage, {
 } from "./index.meta";
 
 import { MallardDuck, ModelDuck } from "./Ducks";
+import { FlyRocketPowered } from "./FlyBehavior";
 
 class QuackMuted {}
-class FlyRocketPowered {}
 
 let seq = 1;
 describe(`[${seq++}] 물오리 테스트`, function () {
