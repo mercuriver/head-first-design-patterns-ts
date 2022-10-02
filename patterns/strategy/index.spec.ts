@@ -6,9 +6,8 @@ import defaultMessage, {
   extraMessages,
 } from "./index.meta";
 
-import MallardDuck from "./MallardDuck";
+import { MallardDuck, ModelDuck } from "./Ducks";
 
-class ModelDuck {}
 class QuackMuted {}
 class FlyRocketPowered {}
 
