@@ -1,14 +1,21 @@
-const meta = {
-  message_swim: "모든 오리는 물에 뜹니다. 가짜 오리도 뜨죠",
-};
-
+import defaultMessage from "./index.meta";
 abstract class Duck {
+  #flyBehavior: any;
+  #quackBehavior: any;
+
   constructor() {}
 
   public swim(): string {
-    return meta.message_swim;
+    return defaultMessage.message_swim;
+  }
+
+  public performFly(): string {
+    return this.#flyBehavior.fly();
+  }
+
+  public performQuack(): string {
+    return this.#quackBehavior.quack();
   }
 }
 
-export { meta };
 export default Duck;
