@@ -7,7 +7,10 @@ abstract class Duck {
   #flyBehavior: FlyBehavior;
   #quackBehavior: QuackBehavior;
 
-  constructor() {}
+  constructor({ fly, quack }: { fly: FlyBehavior; quack: QuackBehavior }) {
+    this.#flyBehavior = fly;
+    this.#quackBehavior = quack;
+  }
 
   public swim(): string {
     return defaultMessage.swim;
