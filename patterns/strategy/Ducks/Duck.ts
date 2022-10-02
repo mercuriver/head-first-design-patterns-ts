@@ -10,7 +10,7 @@ abstract class Duck {
   constructor() {}
 
   public swim(): string {
-    return defaultMessage.message_swim;
+    return defaultMessage.swim;
   }
 
   public performFly(): string {

@@ -1,24 +1,24 @@
-const defaults = {
-  message_swim: "모든 오리는 물에 뜹니다. 가짜 오리도 뜨죠",
+const defaultMessages = {
+  swim: "모든 오리는 물에 뜹니다. 가짜 오리도 뜨죠",
 };
 
-const mallardDuck = {
-  message_display: "저는 물오리입니다.",
-  message_quack: "꽥",
-  message_fly: "날고 있어요!!",
+const announceMessages = {
+  mallard: "저는 물오리입니다.",
+  model: "저는 모형 오리입니다.",
 };
 
-const modelDuck = {
-  message_display: "저는 모형 오리입니다.",
-  message_quack: "삑",
-  message_fly: "저는 못 날아요.",
+const quackMessages = {
+  quack: "꽥",
+  squeak: "삑",
+  mute_quack: "<< 조용~ >>",
 };
 
-const extraMessages = {
-  message_fly_rocket: "로켓 추진으로 날아갑니다.",
-  message_quack_mute: "<< 조용~ >>",
+const flyMessages = {
+  fly_with_wings: "날고 있어요!!",
+  fly_no_way: "저는 못 날아요.",
+  fly_rocket_pewered: "로켓 추진으로 날아갑니다.",
 };
 
-export { mallardDuck, modelDuck, extraMessages };
+export { announceMessages, quackMessages, flyMessages };
 
-export default defaults;
+export default defaultMessages;

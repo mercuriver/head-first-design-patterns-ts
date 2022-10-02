@@ -1,5 +1,5 @@
 import Duck from "./Duck";
-import { mallardDuck } from "../index.meta";
+import { announceMessages } from "../index.meta";
 
 class MallardDuck extends Duck {
   constructor() {
@@ -7,7 +7,7 @@ class MallardDuck extends Duck {
   }
 
   display(): string {
-    return mallardDuck.message_display;
+    return announceMessages.mallard;
   }
 }
 
