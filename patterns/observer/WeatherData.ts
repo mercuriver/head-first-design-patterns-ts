@@ -41,6 +41,17 @@ class WeatherData implements Subject {
   get pressure() {
     return this.#pressure;
   }
+
+  #MeasurementChanged() {
+    this.notiObservers();
+  }
+
+  setMeasurements(temp: number, humidity: number, pressure: number) {
+    this.#temperature = temp;
+    this.#humidity = humidity;
+    this.#pressure = pressure;
+    this.#MeasurementChanged();
+  }
 }
 
 export default WeatherData;
