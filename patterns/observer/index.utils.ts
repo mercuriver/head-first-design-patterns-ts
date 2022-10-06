@@ -5,4 +5,14 @@ const humidityGenerator = () => Math.floor(Math.random() * 100);
 
 const pressureGenerator = () => 913.25 + Math.random() * 200; // 단위: hPa
 
-export { temperatureGenerator, humidityGenerator, pressureGenerator };
+const printf = (...args: string[]): string => {
+  if (!args || args.length < 2) return "";
+  const [template, ...values] = args;
+  let message = template;
+  values.forEach((value, index) => {
+    message = message.split(`%${index}`).join(value);
+  });
+  return message;
+};
+
+export { temperatureGenerator, humidityGenerator, pressureGenerator, printf };
