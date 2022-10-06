@@ -1,11 +1,5 @@
-import Observer from "./interfaces/Observer";
-import DisplayElement from "./interfaces/DisplayElement";
-import WeatherData from "./WeatherData";
+import Display from "./Display";
 
-class StatisticDisplay implements Observer, DisplayElement {
-  constructor(weatherData: WeatherData) {}
-  display(): void {}
-  update(temp: number, humidity: number, pressure: number): void {}
-}
+class StatisticDisplay extends Display {}
 
 export default StatisticDisplay;
