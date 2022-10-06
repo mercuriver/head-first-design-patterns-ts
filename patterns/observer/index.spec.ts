@@ -8,6 +8,13 @@ import ForecastDisplay from "./ForecastDisplay";
 
 import * as utils from "./index.utils";
 
+describe("util 테스트", function () {
+  expect(utils.printf("%0 %1 %2")).to.equal("");
+  expect(utils.printf("%0 %1 %2", "A", "B", "C")).to.equal("A B C");
+  expect(utils.printf("%0 %1 %1", "A", "B", "C")).to.equal("A B B");
+  expect(utils.printf("%2 %2 %1", "A", "B", "C")).to.equal("C C B");
+});
+
 describe("기상 현황 공유 옵저버 패턴", function () {
   let currentObserverCount = 0;
   const { temperatureGenerator, humidityGenerator, pressureGenerator } = utils;
