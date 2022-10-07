@@ -1,5 +1,5 @@
 interface DisplayElement {
-  display(): void;
+  display(): string;
 }
 
 export default DisplayElement;
