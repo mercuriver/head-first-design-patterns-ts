@@ -18,7 +18,7 @@ describe(`[${seq++}] 물오리 테스트`, function () {
     expect(duck.display()).to.equal(announceMessages.mallard);
   });
   it("헤엄", function () {
-    expect(duck.swim()).to.equal(defaultMessage.swim);
+    expect(duck.swim).to.equal(defaultMessage.swim);
   });
   it("꽥꽥", function () {
     expect(duck.performQuack()).to.equal(quackMessages.quack);
@@ -35,7 +35,7 @@ describe(`[${seq++}] 모형 오리 테스트`, function () {
     expect(duck.display()).to.equal(announceMessages.model);
   });
   it("헤엄", function () {
-    expect(duck.swim()).to.equal(defaultMessage.swim);
+    expect(duck.swim).to.equal(defaultMessage.swim);
   });
   it("꽥꽥", function () {
     expect(duck.performQuack()).to.equal(quackMessages.squeak);
@@ -45,12 +45,12 @@ describe(`[${seq++}] 모형 오리 테스트`, function () {
   });
 
   it("꽥꽥 방식 변경", function () {
-    duck.setQuackBehavior(new MuteQuack());
+    duck.quackBehavior = new MuteQuack();
     expect(duck.performQuack()).to.equal(quackMessages.mute_quack);
   });
 
   it("비행 방식 변경", function () {
-    duck.setFlyBehavior(new FlyRocketPowered());
+    duck.flyBehavior = new FlyRocketPowered();
     expect(duck.performFly()).to.equal(flyMessages.fly_rocket_pewered);
   });
 });

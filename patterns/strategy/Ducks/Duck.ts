@@ -12,7 +12,7 @@ abstract class Duck {
     this.#quackBehavior = quack;
   }
 
-  public swim(): string {
+  get swim(): string {
     return defaultMessage.swim;
   }
 
@@ -24,11 +24,11 @@ abstract class Duck {
     return this.#quackBehavior.quack();
   }
 
-  public setFlyBehavior(newBehavior: FlyBehavior): void {
+  set flyBehavior(newBehavior: FlyBehavior) {
     this.#flyBehavior = newBehavior;
   }
 
-  public setQuackBehavior(newBehavior: QuackBehavior): void {
+  set quackBehavior(newBehavior: QuackBehavior) {
     this.#quackBehavior = newBehavior;
   }
 }
