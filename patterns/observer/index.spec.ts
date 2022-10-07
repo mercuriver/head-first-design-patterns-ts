@@ -7,34 +7,47 @@ import StatisticDisplay from "./StatisticDisplay";
 import ForecastDisplay from "./ForecastDisplay";
 
 import * as utils from "./index.utils";
+import { displayTemplate } from "./index.meta";
+const { currentCodition, statistic, posiviteForecast, negativeForecast } =
+  displayTemplate;
+
+const printWithValues =
+  (temp: number, humidity: number, pressure: number) => (template) =>
+    utils.printf(
+      template,
+      temp.toString(),
+      humidity.toString(),
+      pressure.toString()
+    );
 
 describe("util 테스트", function () {
-  expect(utils.printf("%0 %1 %2")).to.equal("");
-  expect(utils.printf("%0 %1 %2", "A", "B", "C")).to.equal("A B C");
-  expect(utils.printf("%0 %1 %1", "A", "B", "C")).to.equal("A B B");
-  expect(utils.printf("%2 %2 %1", "A", "B", "C")).to.equal("C C B");
+  const { printf } = utils;
+  expect(printf("%0 %1 %2")).to.equal("");
+  expect(printf("%0 %1 %2", "A", "B", "C")).to.equal("A B C");
+  expect(printf("%0 %1 %1", "A", "B", "C")).to.equal("A B B");
+  expect(printf("%2 %2 %1", "A", "B", "C")).to.equal("C C B");
 });
 
 describe("기상 현황 공유 옵저버 패턴", function () {
   let currentObserverCount = 0;
-  const { temperatureGenerator, humidityGenerator, pressureGenerator } = utils;
 
-  const temperature = temperatureGenerator(25);
-  const humidity = humidityGenerator();
-  const pressure = pressureGenerator();
-
-  const weatherData = new WeatherData(temperature, humidity, pressure);
-
-  it("날씨 데이터 초기값 확인", function () {
-    expect(weatherData.observersCount).to.equal(currentObserverCount);
-    expect(weatherData.temperature).to.equal(temperature);
-    expect(weatherData.humidity).to.equal(humidity);
-    expect(weatherData.pressure).to.equal(pressure);
-  });
+  const firstTemp = 27;
+  const secondTemp = 25;
+  let humidity = 65;
+  let pressure = 1000;
 
   let currentConditionDisplay;
   let statisticDisplay;
   let forecastDisplay;
+
+  const weatherData = new WeatherData(firstTemp, humidity, pressure);
+
+  it("날씨 데이터 초기값 확인", function () {
+    expect(weatherData.observersCount).to.equal(currentObserverCount);
+    expect(weatherData.temperature).to.equal(firstTemp);
+    expect(weatherData.humidity).to.equal(humidity);
+    expect(weatherData.pressure).to.equal(pressure);
+  });
 
   it("날씨 중계기 연결(옵저버)", function () {
     currentConditionDisplay = new CurrentConditionDisplay(weatherData);
@@ -48,46 +61,39 @@ describe("기상 현황 공유 옵저버 패턴", function () {
     expect(weatherData.observersCount).to.equal(currentObserverCount);
   });
 
-  it("날씨 데이터 갱신", function () {
-    const temperature = temperatureGenerator(25);
-    const humidity = humidityGenerator();
-    const pressure = pressureGenerator();
+  it("날씨 중계기 값 확인", function () {
+    expect(currentConditionDisplay.display()).to.equal(
+      printWithValues(firstTemp, humidity, pressure)(currentCodition)
+    );
+    expect(statisticDisplay.display()).to.equal(
+      printWithValues(firstTemp, firstTemp, firstTemp)(statistic)
+    );
+    expect(forecastDisplay.display()).to.equal(posiviteForecast);
+  });
 
-    weatherData.setMeasurements(temperature, humidity, pressure);
+  weatherData.setMeasurements(secondTemp, humidity, pressure);
 
-    expect(weatherData.temperature).to.equal(temperature);
+  it("날씨 데이터 갱신: 날씨 추워짐", function () {
+    expect(weatherData.temperature).to.equal(secondTemp);
     expect(weatherData.humidity).to.equal(humidity);
     expect(weatherData.pressure).to.equal(pressure);
   });
 
   it("날씨 중계기 값 확인", function () {
-    expect(currentConditionDisplay.display).to.equal(
-      "currentConditionDisplay: Formatted message"
+    const printer = printWithValues(secondTemp, humidity, pressure);
+    expect(currentConditionDisplay.display()).to.equal(
+      printer(currentCodition)
     );
-    expect(statisticDisplay.display).to.equal(
-      "statisticDisplay: Formatted message"
+    expect(statisticDisplay.display()).to.equal(
+      printWithValues(secondTemp, firstTemp, secondTemp)(statistic)
     );
-    expect(forecastDisplay.display).to.equal(
-      "forecastDisplay: Formatted message"
-    );
+    expect(forecastDisplay.display()).to.equal(negativeForecast);
   });
 
   it("날씨 중계기 제거", function () {
     weatherData.removeObserver(currentConditionDisplay);
     currentObserverCount--;
     expect(weatherData.observersCount).to.equal(currentObserverCount);
-  });
-
-  it("날씨 데이터 갱신", function () {
-    const temperature = temperatureGenerator(25);
-    const humidity = humidityGenerator();
-    const pressure = pressureGenerator();
-
-    weatherData.setMeasurements(temperature, humidity, pressure);
-
-    expect(weatherData.temperature).to.equal(temperature);
-    expect(weatherData.humidity).to.equal(humidity);
-    expect(weatherData.pressure).to.equal(pressure);
   });
 
   it("날씨 중계기 값 확인", function () {
@@ -114,17 +120,5 @@ describe("기상 현황 공유 옵저버 패턴", function () {
     weatherData.removeObserver(forecastDisplay);
     currentObserverCount--;
     expect(weatherData.observersCount).to.equal(currentObserverCount);
-  });
-
-  it("날씨 데이터 갱신", function () {
-    const temperature = temperatureGenerator(25);
-    const humidity = humidityGenerator();
-    const pressure = pressureGenerator();
-
-    weatherData.setMeasurements(temperature, humidity, pressure);
-
-    expect(weatherData.temperature).to.equal(temperature);
-    expect(weatherData.humidity).to.equal(humidity);
-    expect(weatherData.pressure).to.equal(pressure);
   });
 });
