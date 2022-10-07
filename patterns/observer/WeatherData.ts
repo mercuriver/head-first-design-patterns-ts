@@ -16,6 +16,8 @@ class WeatherData implements Subject {
 
   registerObserver(observer) {
     this.#observers.push(observer);
+
+    // observer.update(this.#temperature, this.#humidity, this.#pressure);
   }
 
   removeObserver(observer) {
