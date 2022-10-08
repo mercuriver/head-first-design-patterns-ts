@@ -1,8 +1,8 @@
 import Observer from "./Observer";
 
-interface Subject {
-  registerObserver(observer: Observer): void;
-  removeObserver(observer: Observer): void;
+interface Subject<T> {
+  registerObserver(observer: Observer<T>): void;
+  removeObserver(observer: Observer<T>): void;
   notiObservers(): void;
 }
 

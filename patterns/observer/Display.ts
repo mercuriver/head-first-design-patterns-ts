@@ -2,7 +2,7 @@ import Observer from "./interfaces/Observer";
 import DisplayElement from "./interfaces/DisplayElement";
 import WeatherData, { WeatherDataType } from "./WeatherData";
 
-abstract class Display implements Observer, DisplayElement {
+abstract class Display implements Observer<WeatherDataType>, DisplayElement {
   #weatherData: WeatherData;
   #temperature: number;
   #humidity: number;

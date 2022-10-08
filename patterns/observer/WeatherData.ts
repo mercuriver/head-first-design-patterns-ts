@@ -1,13 +1,14 @@
 import Subject from "./interfaces/Subject";
 import Observer from "./interfaces/Observer";
 
-class WeatherData implements Subject {
-  #observers: Observer[];
 export type WeatherDataType = {
   temperature: number;
   humidity: number;
   pressure: number;
 };
+
+class WeatherData implements Subject<WeatherDataType> {
+  #observers: Observer<WeatherDataType>[];
   #temperature: number;
   #humidity: number;
   #pressure: number;
