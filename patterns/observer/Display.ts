@@ -17,16 +17,16 @@ abstract class Display implements Observer, DisplayElement {
     this.#weatherData.removeObserver(this);
   }
 
-  get temperature(): string {
-    return this.#temperature.toString();
+  get temperature(): number {
+    return this.#temperature;
   }
 
-  get humidity(): string {
-    return this.#humidity.toString();
+  get humidity(): number {
+    return this.#humidity;
   }
 
-  get pressure(): string {
-    return this.#pressure.toString();
+  get pressure(): number {
+    return this.#pressure;
   }
 
   update(temp: number, humidity: number, pressure: number): void {

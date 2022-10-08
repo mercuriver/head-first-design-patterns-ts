@@ -7,9 +7,9 @@ class CurrentConditionDisplay extends Display {
   display(): string {
     const message = printf(
       displayTemplate.currentCodition,
-      this.temperature,
-      this.humidity,
-      this.pressure
+      this.temperature.toString(),
+      this.humidity.toString(),
+      this.pressure.toString()
     );
     console.log(message);
     return message;

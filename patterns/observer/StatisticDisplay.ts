@@ -26,11 +26,10 @@ class StatisticDisplay extends Display {
     super.update(temp, humidity, pressure);
   }
 
-  display(): string {
-    console.log("#######", this.highest, this.lowest);
+  display() {
     const message = printf(
       displayTemplate.statistic,
-      this.temperature,
+      this.temperature.toString(),
       this.highest.toString(),
       this.lowest.toString()
     );
