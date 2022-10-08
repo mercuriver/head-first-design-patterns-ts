@@ -35,7 +35,17 @@ class WeatherData implements Subject<WeatherDataType> {
   }
 
   notiObservers() {
-    // Todo: #observers.each.update
+    for (let observer of this.#observers) {
+      observer.update(this.data);
+    }
+  }
+
+  get data(): WeatherDataType {
+    return {
+      temperature: this.temperature,
+      humidity: this.humidity,
+      pressure: this.pressure,
+    };
   }
 
   get observersCount() {
