@@ -13,7 +13,6 @@ class StatisticDisplay extends Display {
 
   constructor(weatherData) {
     super(weatherData);
-
     this.highest = this.temperature;
     this.lowest = this.temperature;
   }
@@ -22,6 +21,7 @@ class StatisticDisplay extends Display {
     const { temperature } = data;
     this.highest = Math.max(this.highest, temperature);
     this.lowest = Math.min(this.lowest, temperature);
+    // Todo: super.update 내부에서 display를 호출하기 때문에, 클래스 내부 변수 값 갱신 시 주의해야 함. 코드 개선 필요
     super.update(data);
   }
 
