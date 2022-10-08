@@ -27,7 +27,9 @@ class WeatherData implements Subject<WeatherDataType> {
   }
 
   removeObserver(observer) {
-    // Todo: remove #observers
+    this.#observers = this.#observers.filter(
+      (_observer) => _observer !== observer
+    );
   }
 
   notiObservers() {
