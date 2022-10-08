@@ -10,7 +10,13 @@ abstract class Display implements Observer, DisplayElement {
 
   constructor(weatherData: WeatherData) {
     this.#weatherData = weatherData;
-    this.#weatherData.registerObserver(this);
+
+    const initValue = this.#weatherData.registerObserver(this);
+    const { temperature, humidity, pressure } = initValue;
+
+    this.#temperature = temperature;
+    this.#humidity = humidity;
+    this.#pressure = pressure;
   }
 
   leave(): void {

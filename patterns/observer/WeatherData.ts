@@ -19,10 +19,14 @@ export type WeatherDataType = {
     this.#pressure = pressure;
   }
 
-  registerObserver(observer) {
+  registerObserver(observer): WeatherDataType {
     this.#observers.push(observer);
 
-    // observer.update(this.#temperature, this.#humidity, this.#pressure);
+    return {
+      temperature: this.temperature,
+      humidity: this.humidity,
+      pressure: this.pressure,
+    };
   }
 
   removeObserver(observer) {
