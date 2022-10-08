@@ -39,7 +39,7 @@ abstract class Display implements Observer<WeatherDataType>, DisplayElement {
     this.#temperature = temperature;
     this.#humidity = humidity;
     this.#pressure = pressure;
-    this.display();
+    // this.display();
   }
 
   display(): string {
