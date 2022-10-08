@@ -3,6 +3,11 @@ import Observer from "./interfaces/Observer";
 
 class WeatherData implements Subject {
   #observers: Observer[];
+export type WeatherDataType = {
+  temperature: number;
+  humidity: number;
+  pressure: number;
+};
   #temperature: number;
   #humidity: number;
   #pressure: number;
