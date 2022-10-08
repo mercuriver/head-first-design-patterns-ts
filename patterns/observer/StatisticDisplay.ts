@@ -18,12 +18,12 @@ class StatisticDisplay extends Display {
     console.log("####### 3", this.highest, this.lowest);
   }
 
-  update(temp: number, humidity: number, pressure: number): void {
     console.log("####### 1", temp, this.highest, this.lowest);
     this.highest = Math.max(this.highest, temp);
     this.lowest = Math.min(this.lowest, temp);
     console.log("####### 2", temp, this.highest, this.lowest);
     super.update(temp, humidity, pressure);
+  update(data) {
   }
 
   display() {

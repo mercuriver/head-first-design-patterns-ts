@@ -1,6 +1,6 @@
 import Observer from "./interfaces/Observer";
 import DisplayElement from "./interfaces/DisplayElement";
-import WeatherData from "./WeatherData";
+import WeatherData, { WeatherDataType } from "./WeatherData";
 
 abstract class Display implements Observer, DisplayElement {
   #weatherData: WeatherData;
@@ -29,8 +29,8 @@ abstract class Display implements Observer, DisplayElement {
     return this.#pressure;
   }
 
-  update(temp: number, humidity: number, pressure: number): void {
-    this.#temperature = temp;
+  update({ temperature, humidity, pressure }: WeatherDataType): void {
+    this.#temperature = temperature;
     this.#humidity = humidity;
     this.#pressure = pressure;
     this.display();

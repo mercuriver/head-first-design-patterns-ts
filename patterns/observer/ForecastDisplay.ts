@@ -10,10 +10,10 @@ class ForecastDisplay extends Display {
     this.prevTemp = -Infinity;
   }
 
-  update(temp: number, humidity: number, pressure: number): void {
     super.update(temp, humidity, pressure);
     this.isPositive = this.prevTemp < temp;
     this.prevTemp = temp;
+  update(data): void {
   }
 
   display(): string {

@@ -12,9 +12,9 @@ export type WeatherDataType = {
   #humidity: number;
   #pressure: number;
 
-  constructor(temp: number, humidity: number, pressure: number) {
+  constructor({ temperature, humidity, pressure }: WeatherDataType) {
     this.#observers = [];
-    this.#temperature = temp;
+    this.#temperature = temperature;
     this.#humidity = humidity;
     this.#pressure = pressure;
   }
@@ -53,8 +53,8 @@ export type WeatherDataType = {
     this.notiObservers();
   }
 
-  setMeasurements(temp: number, humidity: number, pressure: number) {
-    this.#temperature = temp;
+  setMeasurements({ temperature, humidity, pressure }: WeatherDataType) {
+    this.#temperature = temperature;
     this.#humidity = humidity;
     this.#pressure = pressure;
     this.#MeasurementChanged();

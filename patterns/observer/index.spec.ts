@@ -36,11 +36,17 @@ describe("기상 현황 공유 옵저버 패턴", function () {
   let humidity = 65;
   let pressure = 1000;
 
+  const weatherDataProps = {
+    temperature: firstTemp,
+    humidity,
+    pressure,
+  };
+
   let currentConditionDisplay;
   let statisticDisplay;
   let forecastDisplay;
 
-  const weatherData = new WeatherData(firstTemp, humidity, pressure);
+  const weatherData = new WeatherData(weatherDataProps);
 
   it("날씨 데이터 초기값 확인", function () {
     expect(weatherData.observersCount).to.equal(currentObserverCount);
@@ -71,9 +77,9 @@ describe("기상 현황 공유 옵저버 패턴", function () {
     expect(forecastDisplay.display()).to.equal(posiviteForecast);
   });
 
-  weatherData.setMeasurements(secondTemp, humidity, pressure);
-
   it("날씨 데이터 갱신: 날씨 추워짐", function () {
+    weatherDataProps.temperature = secondTemp;
+    weatherData.setMeasurements(weatherDataProps);
     expect(weatherData.temperature).to.equal(secondTemp);
     expect(weatherData.humidity).to.equal(humidity);
     expect(weatherData.pressure).to.equal(pressure);
