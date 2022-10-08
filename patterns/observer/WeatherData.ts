@@ -23,11 +23,7 @@ class WeatherData implements Subject<WeatherDataType> {
   registerObserver(observer): WeatherDataType {
     this.#observers.push(observer);
 
-    return {
-      temperature: this.temperature,
-      humidity: this.humidity,
-      pressure: this.pressure,
-    };
+    return this.data;
   }
 
   removeObserver(observer) {
@@ -42,26 +38,14 @@ class WeatherData implements Subject<WeatherDataType> {
 
   get data(): WeatherDataType {
     return {
-      temperature: this.temperature,
-      humidity: this.humidity,
-      pressure: this.pressure,
+      temperature: this.#temperature,
+      humidity: this.#humidity,
+      pressure: this.#pressure,
     };
   }
 
   get observersCount() {
     return this.#observers.length;
-  }
-
-  get temperature() {
-    return this.#temperature;
-  }
-
-  get humidity() {
-    return this.#humidity;
-  }
-
-  get pressure() {
-    return this.#pressure;
   }
 
   #MeasurementChanged() {
