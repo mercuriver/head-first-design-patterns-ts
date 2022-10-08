@@ -55,9 +55,7 @@ describe("기상 현황 공유 옵저버 패턴", function () {
 
   it("날씨 데이터 초기값 확인", function () {
     expect(weatherData.observersCount).to.equal(currentObserverCount);
-    expect(weatherData.temperature).to.equal(firstTemp);
-    expect(weatherData.humidity).to.equal(humidity);
-    expect(weatherData.pressure).to.equal(pressure);
+    expect(weatherData.data).to.eql(weatherDataProps);
   });
 
   it("날씨 중계기 연결(옵저버)", function () {
@@ -85,9 +83,7 @@ describe("기상 현황 공유 옵저버 패턴", function () {
   it("날씨 데이터 갱신: 날씨 추워짐", function () {
     weatherDataProps.temperature = secondTemp;
     weatherData.setMeasurements(weatherDataProps);
-    expect(weatherData.temperature).to.equal(secondTemp);
-    expect(weatherData.humidity).to.equal(humidity);
-    expect(weatherData.pressure).to.equal(pressure);
+    expect(weatherData.data).to.eql(weatherDataProps);
   });
 
   it("날씨 중계기 값 확인", function () {
