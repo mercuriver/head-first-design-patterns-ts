@@ -8,8 +8,13 @@ import ForecastDisplay from "./ForecastDisplay";
 
 import * as utils from "./index.utils";
 import { displayTemplate } from "./index.meta";
-const { currentCodition, statistic, posiviteForecast, negativeForecast } =
-  displayTemplate;
+const {
+  currentCodition,
+  statistic,
+  defaultForecast,
+  posiviteForecast,
+  negativeForecast,
+} = displayTemplate;
 
 const printWithValues =
   (temp: number, humidity: number, pressure: number) => (template) =>
@@ -74,7 +79,7 @@ describe("기상 현황 공유 옵저버 패턴", function () {
     expect(statisticDisplay.display()).to.equal(
       printWithValues(firstTemp, firstTemp, firstTemp)(statistic)
     );
-    expect(forecastDisplay.display()).to.equal(posiviteForecast);
+    expect(forecastDisplay.display()).to.equal(defaultForecast);
   });
 
   it("날씨 데이터 갱신: 날씨 추워짐", function () {
