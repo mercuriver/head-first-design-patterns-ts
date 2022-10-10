@@ -1,22 +1,19 @@
 import Observer from "../interfaces/Observer";
 import DisplayElement from "../interfaces/DisplayElement";
 import WeatherData, { WeatherDataType } from "./WeatherData";
+import { displayTemplate } from "../index.meta";
 
 abstract class Display implements Observer<WeatherDataType>, DisplayElement {
   #weatherData: WeatherData;
   #temperature: number;
   #humidity: number;
   #pressure: number;
+  #message: string;
 
   constructor(weatherData: WeatherData) {
     this.#weatherData = weatherData;
-
-    const initValue = this.#weatherData.registerObserver(this);
-    const { temperature, humidity, pressure } = initValue;
-
-    this.#temperature = temperature;
-    this.#humidity = humidity;
-    this.#pressure = pressure;
+    this.#weatherData.registerObserver(this);
+    this.#message = displayTemplate.defaultMessage;
   }
 
   leave(): void {
@@ -35,15 +32,22 @@ abstract class Display implements Observer<WeatherDataType>, DisplayElement {
     return this.#pressure;
   }
 
+  set message(value: string) {
+    console.log(value);
+    this.#message = value;
+  }
+
   update({ temperature, humidity, pressure }: WeatherDataType): void {
     this.#temperature = temperature;
     this.#humidity = humidity;
     this.#pressure = pressure;
-    // this.display();
+    this.setDisplay();
   }
 
+  setDisplay(): void {}
+
   display(): string {
-    return "설정된 표현 방식이 없습니다.";
+    return this.#message;
   }
 }
 
