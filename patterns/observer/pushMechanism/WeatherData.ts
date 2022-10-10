@@ -20,10 +20,8 @@ class WeatherData implements Subject<WeatherDataType> {
     this.#pressure = pressure;
   }
 
-  registerObserver(observer): WeatherDataType {
+  registerObserver(observer): void {
     this.#observers.push(observer);
-
-    return this.data;
   }
 
   removeObserver(observer) {
