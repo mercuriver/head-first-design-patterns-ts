@@ -13,6 +13,7 @@ import PullForecastDisplay from "./pullMechanism/ForecastDisplay";
 import * as utils from "./index.utils";
 import { displayTemplate } from "./index.meta";
 const {
+  defaultMessage,
   currentCodition,
   statistic,
   defaultForecast,
@@ -177,6 +178,23 @@ describe(`[Pull 방식] 기상 현황 공유 옵저버 패턴`, function () {
     forecastDisplay = new PullForecastDisplay(weatherData);
     currentObserverCount++;
     expect(weatherData.observersCount).to.equal(currentObserverCount);
+  });
+
+  it(`[${seq++}] 날씨 중계기 초기 값 확인`, function () {
+    expect(currentConditionDisplay.display()).to.equal(defaultMessage);
+    expect(statisticDisplay.display()).to.equal(defaultMessage);
+    expect(forecastDisplay.display()).to.equal(defaultMessage);
+  });
+
+  it(`[${seq++}] 날씨 데이터 갱신: [최초 update 발생]`, function () {
+    weatherData.setMeasurements({
+      temperature: firstTemp,
+      humidity,
+      pressure,
+    });
+    expect(weatherData.temperature).to.eql(firstTemp);
+    expect(weatherData.humidity).to.eql(humidity);
+    expect(weatherData.pressure).to.eql(pressure);
   });
 
   it(`[${seq++}] 날씨 중계기 값 확인`, function () {
