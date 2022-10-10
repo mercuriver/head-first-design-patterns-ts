@@ -1,10 +1,3 @@
-const temperatureGenerator = (current = 30) =>
-  current + Math.floor(Math.random() * 10) - 5;
-
-const humidityGenerator = () => Math.floor(Math.random() * 100);
-
-const pressureGenerator = () => 913.25 + Math.random() * 200; // 단위: hPa
-
 const printf = (...args: string[]): string => {
   if (!args || args.length < 2) return "";
   const [template, ...values] = args;
@@ -15,4 +8,4 @@ const printf = (...args: string[]): string => {
   return message;
 };
 
-export { temperatureGenerator, humidityGenerator, pressureGenerator, printf };
+export { printf };
