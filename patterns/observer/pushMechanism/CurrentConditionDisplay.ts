@@ -4,15 +4,13 @@ import { printf } from "../index.utils";
 import { displayTemplate } from "../index.meta";
 
 class CurrentConditionDisplay extends Display {
-  display(): string {
-    const message = printf(
+  setDisplay(): void {
+    this.message = printf(
       displayTemplate.currentCodition,
       this.temperature.toString(),
       this.humidity.toString(),
       this.pressure.toString()
     );
-    console.log(message);
-    return message;
   }
 }
 

@@ -1,19 +1,17 @@
 import Display from "./Display";
 import { displayTemplate } from "../index.meta";
 class ForecastDisplay extends Display {
-  prevTemp: number;
   temperatureGap: number;
 
   constructor(weatherData) {
     super(weatherData);
     this.temperatureGap = 0;
-    this.prevTemp = this.temperature;
   }
 
   update(data): void {
     const { temperature } = data;
-    this.temperatureGap = temperature - this.prevTemp;
-    this.prevTemp = temperature;
+    this.temperatureGap =
+      this.temperature !== undefined ? temperature - this.temperature : 0;
     super.update(data);
   }
 
@@ -26,10 +24,8 @@ class ForecastDisplay extends Display {
     return displayTemplate.defaultForecast;
   }
 
-  display(): string {
-    const message = this.getForecastMessage();
-    console.log(message);
-    return message;
+  setDisplay(): void {
+    this.message = this.getForecastMessage();
   }
 }
 

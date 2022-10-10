@@ -10,8 +10,8 @@ class StatisticDisplay extends Display {
 
   constructor(weatherData) {
     super(weatherData);
-    this.#highest = this.temperature;
-    this.#lowest = this.temperature;
+    this.#highest = -Infinity;
+    this.#lowest = Infinity;
   }
 
   update(data) {
@@ -21,15 +21,13 @@ class StatisticDisplay extends Display {
     super.update(data);
   }
 
-  display() {
-    const message = printf(
+  setDisplay(): void {
+    this.message = printf(
       displayTemplate.statistic,
       this.temperature.toString(),
       this.#highest.toString(),
       this.#lowest.toString()
     );
-    console.log(message);
-    return message;
   }
 }
 
