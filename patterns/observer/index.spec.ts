@@ -79,6 +79,16 @@ describe(`[Push 방식] 기상 현황 공유 옵저버 패턴`, function () {
     expect(weatherData.observersCount).to.equal(currentObserverCount);
   });
 
+  it(`[${seq++}] 날씨 중계기 초기 값 확인`, function () {
+    expect(currentConditionDisplay.display()).to.equal(defaultMessage);
+    expect(statisticDisplay.display()).to.equal(defaultMessage);
+    expect(forecastDisplay.display()).to.equal(defaultMessage);
+  });
+
+  it(`[${seq++}] 날씨 데이터 갱신: [최초 update 발생]`, function () {
+    weatherData.setMeasurements(weatherDataProps);
+    expect(weatherData.data).to.eql(weatherDataProps);
+  });
   it(`[${seq++}] 날씨 중계기 값 확인`, function () {
     expect(currentConditionDisplay.display()).to.equal(
       printWithValues(firstTemp, humidity, pressure)(currentCodition)
