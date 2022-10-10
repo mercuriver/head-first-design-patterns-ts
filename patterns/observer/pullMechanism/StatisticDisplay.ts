@@ -20,15 +20,13 @@ class StatisticDisplay extends Display {
     super.update();
   }
 
-  display() {
-    const message = printf(
+  setDisplay(): void {
+    this.message = printf(
       displayTemplate.statistic,
       this.temperature.toString(),
       this.highest.toString(),
       this.lowest.toString()
     );
-    console.log(message);
-    return message;
   }
 }
 

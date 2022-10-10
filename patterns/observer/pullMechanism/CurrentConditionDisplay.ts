@@ -13,15 +13,13 @@ class CurrentConditionDisplay extends Display {
     super.update();
   }
 
-  display(): string {
-    const message = printf(
+  setDisplay(): void {
+    this.message = printf(
       displayTemplate.currentCodition,
       this.temperature.toString(),
       this.#humidity.toString(),
       this.#pressure.toString()
     );
-    console.log(message);
-    return message;
   }
 }
 

@@ -10,7 +10,8 @@ class ForecastDisplay extends Display {
 
   update() {
     const temperature = this.weatherData.temperature;
-    this.temperatureGap = this.temperature - temperature;
+    this.temperatureGap =
+      this.temperature !== undefined ? temperature - this.temperature : 0;
     super.update();
   }
 
@@ -23,10 +24,8 @@ class ForecastDisplay extends Display {
     return displayTemplate.defaultForecast;
   }
 
-  display(): string {
-    const message = this.getForecastMessage();
-    console.log(message);
-    return message;
+  setDisplay(): void {
+    this.message = this.getForecastMessage();
   }
 }
 
