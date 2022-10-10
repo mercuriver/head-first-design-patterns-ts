@@ -5,22 +5,19 @@ import { displayTemplate } from "../index.meta";
 
 class StatisticDisplay extends Display {
   // average 구현 생략
-  // #highest;
-  // #lowest;
-  highest: number;
-  lowest: number;
-  // classfield(#)을 사용할 경우 Display 추상 클레스에서 display() 호출 시 에러 발생, 확인 필요
+  #highest: number;
+  #lowest: number;
 
   constructor(weatherData) {
     super(weatherData);
-    this.highest = this.temperature;
-    this.lowest = this.temperature;
+    this.#highest = this.temperature;
+    this.#lowest = this.temperature;
   }
 
   update(data) {
     const { temperature } = data;
-    this.highest = Math.max(this.highest, temperature);
-    this.lowest = Math.min(this.lowest, temperature);
+    this.#highest = Math.max(this.#highest, temperature);
+    this.#lowest = Math.min(this.#lowest, temperature);
     super.update(data);
   }
 
@@ -28,8 +25,8 @@ class StatisticDisplay extends Display {
     const message = printf(
       displayTemplate.statistic,
       this.temperature.toString(),
-      this.highest.toString(),
-      this.lowest.toString()
+      this.#highest.toString(),
+      this.#lowest.toString()
     );
     console.log(message);
     return message;
