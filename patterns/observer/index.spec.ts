@@ -1,10 +1,10 @@
 import { expect } from "chai";
 
-import WeatherData from "./WeatherData";
+import WeatherData from "./pushMechanism/WeatherData";
 
-import CurrentConditionDisplay from "./CurrentConditionDisplay";
-import StatisticDisplay from "./StatisticDisplay";
-import ForecastDisplay from "./ForecastDisplay";
+import CurrentConditionDisplay from "./pushMechanism/CurrentConditionDisplay";
+import StatisticDisplay from "./pushMechanism/StatisticDisplay";
+import ForecastDisplay from "./pushMechanism/ForecastDisplay";
 
 import * as utils from "./index.utils";
 import { displayTemplate } from "./index.meta";
@@ -36,7 +36,7 @@ describe(`util 테스트`, function () {
   });
 });
 
-describe(`기상 현황 공유 옵저버 패턴`, function () {
+describe(`[Push 방식] 기상 현황 공유 옵저버 패턴`, function () {
   let seq = 1;
   let currentObserverCount = 0;
 

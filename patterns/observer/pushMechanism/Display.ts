@@ -1,5 +1,5 @@
-import Observer from "./interfaces/Observer";
-import DisplayElement from "./interfaces/DisplayElement";
+import Observer from "../interfaces/Observer";
+import DisplayElement from "../interfaces/DisplayElement";
 import WeatherData, { WeatherDataType } from "./WeatherData";
 
 abstract class Display implements Observer<WeatherDataType>, DisplayElement {

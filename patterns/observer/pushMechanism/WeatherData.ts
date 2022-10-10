@@ -1,5 +1,5 @@
-import Subject from "./interfaces/Subject";
-import Observer from "./interfaces/Observer";
+import Subject from "../interfaces/Subject";
+import Observer from "../interfaces/Observer";
 
 export type WeatherDataType = {
   temperature: number;

@@ -1,7 +1,7 @@
 import Display from "./Display";
 
-import { printf } from "./index.utils";
-import { displayTemplate } from "./index.meta";
+import { printf } from "../index.utils";
+import { displayTemplate } from "../index.meta";
 
 class StatisticDisplay extends Display {
   // average 구현 생략

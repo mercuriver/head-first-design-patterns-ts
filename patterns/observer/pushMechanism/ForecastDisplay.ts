@@ -1,5 +1,5 @@
 import Display from "./Display";
-import { displayTemplate } from "./index.meta";
+import { displayTemplate } from "../index.meta";
 class ForecastDisplay extends Display {
   prevTemp: number;
   temperatureGap: number;
