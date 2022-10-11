@@ -73,6 +73,6 @@
 
 ## 작성한 디자인 패턴
 
-- [x] 전략 패턴 / Strategy
-- [ ] 옵저버 패턴 / Observer
+- [x] [전략 패턴 / Strategy](./patterns/strategy/)
+- [ ] [옵저버 패턴 / Observer](./patterns/observer/)
 - [ ] 데코레이터 패턴 / Decorator
