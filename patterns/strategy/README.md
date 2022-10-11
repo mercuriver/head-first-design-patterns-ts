@@ -12,6 +12,8 @@
 
 ## 요약
 
+알고리즘군을 정의하고 해당 알고리즘군 내에 속한 알고리즘을 유연하게 변경할 수 있게 한다.
+
 - 향후 변경될 우려가 있는 요소 혹은 공통 행동(알고리즘)을 정리하여 분리(캡슐화)한다.
 - 공통 사항으로 묶인 행동은 대표 시그니처를 정의하여 공통 인터페이스를 적용한다.
 - 인터페이스를 통해 구현된 구현체는 다형성으로 대표 시그니처를 활용할 수 있게 된다.
@@ -30,7 +32,7 @@
 
 - 디자인 원칙 [2], [구현보다는 인터페이스에 맞춰서 프로그래밍한다](https://github.com/mercuriver/head-first-design-patterns-ts/blob/main/README.md#2-%EA%B5%AC%ED%98%84%EB%B3%B4%EB%8B%A4%EB%8A%94-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EC%97%90-%EB%A7%9E%EC%B6%B0%EC%84%9C-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%ED%95%9C%EB%8B%A4)
 
-  행동의 대표 시그니처를 정리하여 인터페이스로 정의한다. 알고리즘 군을 정리하여 `FlyBehavior`, `QuackBehavior`를 인터페이스로 정의한 후, 알고리즘 군 각각의 구현체에서 구체적인 행동 구현은 작성한다.
+  행동의 대표 시그니처를 정리하여 인터페이스로 정의한다. 알고리즘군을 정리하여 `FlyBehavior`, `QuackBehavior`를 인터페이스로 정의한 후, 알고리즘군 각각의 구현체에서 구체적인 행동 구현은 작성한다.
 
 - 디자인 원칙 [3], [상속보다는 구성을 활용한다](https://github.com/mercuriver/head-first-design-patterns-ts/blob/main/README.md#3-%EC%83%81%EC%86%8D%EB%B3%B4%EB%8B%A4%EB%8A%94-%EA%B5%AC%EC%84%B1%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C%EB%8B%A4)
 
