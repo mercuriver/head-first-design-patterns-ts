@@ -8,4 +8,8 @@ const printf = (...args: string[]): string => {
   return message;
 };
 
-export { printf };
+const printWithValues =
+  (temp: number, humidity: number, pressure: number) => (template) =>
+    printf(template, temp.toString(), humidity.toString(), pressure.toString());
+
+export { printf, printWithValues };
