@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha $INIT_CWD/**/*.spec.ts -r ts-node/register"
+    "test": "mocha $INIT_CWD/**/*.spec.ts $INIT_CWD/*.spec.ts -r ts-node/register"
   },
   "repository": {
     "type": "git",
