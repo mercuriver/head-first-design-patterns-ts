@@ -1,12 +1,12 @@
 const COST = {
-  HOUSE_BLEND: 0.89,
-  DARK_ROAST: 0.99,
-  DECAFFEINE: 1.05,
-  ESPRESSO: 1.99,
-  MILK: 0.1,
-  MOCHA: 0.2,
-  SOY: 0.15,
-  WHIPPED_CREAM: 0.1,
+  ESPRESSO: 199,
+  DECAFFEINE: 105,
+  DARK_ROAST: 99,
+  HOUSE_BLEND: 89,
+  MOCHA: 20,
+  WHIPPED_CREAM: 15,
+  SOY: 12,
+  MILK: 10,
 } as const;
 
 export { COST };
