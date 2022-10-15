@@ -1,3 +1,7 @@
+interface BeverageDecoratorClass {
+  new (beverage: BeverageDecorator): BeverageDecorator;
+}
+
 class BeverageDecorator {
   #beverage: BeverageDecorator;
 
@@ -11,6 +15,10 @@ class BeverageDecorator {
 
   get description(): string {
     return this.#beverage ? `${this.#beverage.description} ` : "";
+  }
+
+  add(beverageDecorator: BeverageDecoratorClass) {
+    return new beverageDecorator(this);
   }
 }
 
