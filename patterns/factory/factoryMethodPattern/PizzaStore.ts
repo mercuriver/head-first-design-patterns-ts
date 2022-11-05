@@ -1,9 +1,10 @@
 import Pizza from "./Pizza";
+import type { PizzeType } from "../index.meta";
 
 abstract class PizzaStore {
-  abstract createPizza(type: string): Pizza;
+  abstract createPizza(type: PizzeType): Pizza;
 
-  orderPizza(type: string): Pizza {
+  orderPizza(type: PizzeType): Pizza {
     const pizza = this.createPizza(type);
 
     pizza.prepare();
