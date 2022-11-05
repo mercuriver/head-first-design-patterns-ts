@@ -12,7 +12,7 @@ const PIZZA_TYPE = {
   PEPPERONI: "Pepperoni",
 } as const;
 
-type PizzeType = typeof PIZZA_TYPE[keyof typeof PIZZA_TYPE];
+type PizzaType = typeof PIZZA_TYPE[keyof typeof PIZZA_TYPE];
 
 const pizzaStyleName = {
   [PIZZA_STYLE.NEW_YORK]: "뉴욕 스타일",
@@ -26,5 +26,5 @@ const pizzaTypeName = {
   [PIZZA_TYPE.PEPPERONI]: "페퍼로니",
 };
 
-export type { PizzaStyle, PizzeType };
+export type { PizzaStyle, PizzaType };
 export { PIZZA_STYLE, pizzaStyleName, PIZZA_TYPE, pizzaTypeName };

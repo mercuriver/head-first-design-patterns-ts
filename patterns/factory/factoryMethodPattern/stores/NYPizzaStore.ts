@@ -1,10 +1,10 @@
 import Pizza from "../Pizza";
 import PizzaStore from "../PizzaStore";
 
-import type { PizzeType } from "../../index.meta";
+import type { PizzaType } from "../../index.meta";
 
 class NYPizzaStore extends PizzaStore {
-  createPizza(type: PizzeType): Pizza {
+  createPizza(type: PizzaType): Pizza {
     return null;
   }
 }
