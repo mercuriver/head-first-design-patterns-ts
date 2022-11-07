@@ -1,9 +1,13 @@
-import Pizza from "../../Pizza";
+import NYPizza from "./NYPizza";
 
-class CheesePizza extends Pizza {
+import { pizzaTypeName } from "../../../index.meta";
+
+class CheesePizza extends NYPizza {
   constructor() {
-    super();
-    // super({ name: "", dough: "", sauce: "", toppings: "" });
+    super({
+      name: `${pizzaTypeName.Cheese}`,
+      toppings: ["잘게 썬 레지아노 치즈"],
+    });
   }
 }
 
