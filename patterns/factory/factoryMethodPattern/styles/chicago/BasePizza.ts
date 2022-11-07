@@ -6,7 +6,7 @@ import { pizzaStyleName } from "../../../index.meta";
 
 type Props = Optional<PizzaProps, "dough" | "sauce">;
 
-class ChicagoPizza extends Pizza {
+abstract class BasePizza extends Pizza {
   constructor({ name, dough, sauce, toppings }: Props) {
     super({
       name: `${pizzaStyleName.Chicago} ${name}`,
@@ -21,4 +21,4 @@ class ChicagoPizza extends Pizza {
   }
 }
 
-export default ChicagoPizza;
+export default BasePizza;
