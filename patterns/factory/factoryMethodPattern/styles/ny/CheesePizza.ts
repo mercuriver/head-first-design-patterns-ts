@@ -1,8 +1,8 @@
-import NYPizza from "./NYPizza";
+import BasePizza from "./BasePizza";
 
 import { pizzaTypeName } from "../../../index.meta";
 
-class CheesePizza extends NYPizza {
+class CheesePizza extends BasePizza {
   constructor() {
     super({
       name: `${pizzaTypeName.Cheese}`,
