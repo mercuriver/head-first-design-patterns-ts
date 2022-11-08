@@ -22,10 +22,18 @@ const pizzaStyleName = {
 };
 
 const pizzaTypeName = {
-  [PIZZA_TYPE.CHEESE]: "소스와 치즈 피자",
-  [PIZZA_TYPE.VEGGIE]: "베지 피자",
-  [PIZZA_TYPE.CLAM]: "크램 피자",
-  [PIZZA_TYPE.PEPPERONI]: "페퍼로니 피자",
+  [PIZZA_STYLE.NEW_YORK]: {
+    [PIZZA_TYPE.CHEESE]: "소스와 치즈 피자",
+    [PIZZA_TYPE.VEGGIE]: "베지 피자",
+    [PIZZA_TYPE.CLAM]: "크램 피자",
+    [PIZZA_TYPE.PEPPERONI]: "페퍼로니 피자",
+  },
+  [PIZZA_STYLE.CHICAGO]: {
+    [PIZZA_TYPE.CHEESE]: "딥 디쉬 치즈 피자",
+    [PIZZA_TYPE.VEGGIE]: "베지 피자",
+    [PIZZA_TYPE.CLAM]: "크램 피자",
+    [PIZZA_TYPE.PEPPERONI]: "페퍼로니 피자",
+  },
 };
 
 export type { Optional, PizzaStyle, PizzaType };
