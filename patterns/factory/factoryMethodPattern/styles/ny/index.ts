@@ -1,4 +1,4 @@
-export * as NYStyleCheesePizza from "./CheesePizza";
-export * as NYStyleClamPizza from "./ClamPizza";
-export * as NYStyleVeggiePizza from "./VeggiePizza";
-export * as NYStylePepperoniPizza from "./PepperoniPizza";
+export { default as NYStyleCheesePizza } from "./CheesePizza";
+export { default as NYStyleClamPizza } from "./ClamPizza";
+export { default as NYStyleVeggiePizza } from "./VeggiePizza";
+export { default as NYStylePepperoniPizza } from "./PepperoniPizza";
