@@ -1,25 +1,12 @@
 import { expect } from "chai";
 
-class PizzaStore {
-  orderPizza(value) {
-    return {
-      get name() {
-        return "";
-      },
-    };
-  }
-}
-class NYPizzaStore extends PizzaStore {}
-class ChicagoPizzaStore extends PizzaStore {}
-
-const name = {
-  ny: {
-    cheese: "nyCheese",
-  },
-  chicago: {
-    cheese: "chicagoCheese",
-  },
-};
+import { NYPizzaStore, ChicagoPizzaStore } from "./stores";
+import {
+  PIZZA_STYLE,
+  PIZZA_TYPE,
+  pizzaStyleName,
+  pizzaTypeName,
+} from "../index.meta";
 
 describe(`팩토리 메소드 패턴 테스트`, function () {
   let seq = 1;
@@ -33,12 +20,20 @@ describe(`팩토리 메소드 패턴 테스트`, function () {
   });
 
   it(`[${seq++}] 뉴욕 치즈 피자 생성`, function () {
-    const nyCheesePizza = nyStore.orderPizza("cheese");
-    expect(nyCheesePizza.name).to.equal(name.ny.cheese);
+    const nyCheesePizza = nyStore.orderPizza(PIZZA_TYPE.CHEESE);
+    expect(nyCheesePizza.name).to.equal(
+      `${pizzaStyleName[PIZZA_STYLE.NEW_YORK]} ${
+        pizzaTypeName[PIZZA_STYLE.NEW_YORK][PIZZA_TYPE.CHEESE]
+      }`
+    );
   });
 
   it(`[${seq++}] 시카고 치즈 피자 생성`, function () {
-    const chicagoCheesePizza = chicagoStore.orderPizza("cheese");
-    expect(chicagoCheesePizza.name).to.equal(name.chicago.cheese);
+    const chicagoCheesePizza = chicagoStore.orderPizza(PIZZA_TYPE.CHEESE);
+    expect(chicagoCheesePizza.name).to.equal(
+      `${pizzaStyleName[PIZZA_STYLE.CHICAGO]} ${
+        pizzaTypeName[PIZZA_STYLE.CHICAGO][PIZZA_TYPE.CHEESE]
+      }`
+    );
   });
 });
