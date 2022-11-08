@@ -1,11 +1,11 @@
 import BasePizza from "./BasePizza";
 
-import { pizzaTypeName } from "../../../index.meta";
+import { PIZZA_STYLE, PIZZA_TYPE, pizzaTypeName } from "../../../index.meta";
 
 class PepperoniPizza extends BasePizza {
   constructor() {
     super({
-      name: `${pizzaTypeName.Pepperoni}`,
+      name: `${pizzaTypeName[PIZZA_STYLE.NEW_YORK][PIZZA_TYPE.PEPPERONI]}`,
       toppings: [
         "잘게 썬 레지아노 치즈",
         "얇게 썬 페퍼로니",
