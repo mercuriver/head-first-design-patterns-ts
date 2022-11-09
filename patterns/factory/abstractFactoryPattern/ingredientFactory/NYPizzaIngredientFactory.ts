@@ -3,6 +3,8 @@ import PizzaIngredientFactory from "./PizzaIngredientFactory";
 import { ThinCrustDough } from "../ingredient/dough";
 import { MarinaraSauce } from "../ingredient/sauce";
 import { ReggianoCheese } from "../ingredient/cheese";
+import { Garlic, Onion, Mushroom, RedPepper } from "../ingredient/veggies";
+import { SlicedPepperoni } from "../ingredient/pepperoni";
 import { FreshClams } from "../ingredient/clams";
 
 class NYPizzaIngredientFactory implements PizzaIngredientFactory {
@@ -18,14 +20,13 @@ class NYPizzaIngredientFactory implements PizzaIngredientFactory {
     return new ReggianoCheese();
   }
 
-  // createVeggies() {
-  // 	Veggies veggies[] = { new Garlic(), new Onion(), new Mushroom(), new RedPepper() };
-  // 	return veggies;
-  // }
+  createVeggies() {
+    return [new Garlic(), new Onion(), new Mushroom(), new RedPepper()];
+  }
 
-  // createPepperoni() {
-  // 	return new SlicedPepperoni();
-  // }
+  createPepperoni() {
+    return new SlicedPepperoni();
+  }
 
   createClam() {
     return new FreshClams();
