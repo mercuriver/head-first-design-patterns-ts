@@ -84,7 +84,7 @@ abstract class Pizza {
       );
     }
 
-    return `\n${this.#name} 구성요소:\n${ingredient.join("\n")}`;
+    return `\n진행 상황:\n${ingredient.join("\n")}`;
   }
 }
 

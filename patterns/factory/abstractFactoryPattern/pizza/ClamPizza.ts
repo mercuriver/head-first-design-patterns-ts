@@ -10,7 +10,7 @@ class ClamPizza extends Pizza {
   }
 
   prepare() {
-    console.log(`\n준비 중: ${this.name}`);
+    console.log(`${this.name} 재료 준비 중`);
     this.dough = this.#ingredientFactory.createDough();
     this.sauce = this.#ingredientFactory.createSauce();
     this.cheese = this.#ingredientFactory.createCheese();
