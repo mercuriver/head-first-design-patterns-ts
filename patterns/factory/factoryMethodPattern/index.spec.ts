@@ -25,8 +25,8 @@ const pizzaFactoryAssertion = (
 describe(`[팩토리 메소드 패턴] 테스트`, function () {
   let seq = 1;
 
-  const nyStore = new NYPizzaStore();
   it(`[${seq++}] 뉴욕 피자 생성`, function () {
+    const nyStore = new NYPizzaStore();
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.CHEESE);
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.CLAM);
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.VEGGIE);
