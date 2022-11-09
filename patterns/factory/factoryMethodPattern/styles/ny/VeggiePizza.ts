@@ -1,6 +1,6 @@
 import BasePizza from "./BasePizza";
 
-import { PIZZA_STYLE, PIZZA_TYPE, pizzaTypeName } from "../../index.meta";
+import { PIZZA_STYLE, PIZZA_TYPE, pizzaTypeName } from "../../../index.meta";
 
 class VeggiePizza extends BasePizza {
   constructor() {

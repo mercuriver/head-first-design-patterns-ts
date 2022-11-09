@@ -22,7 +22,7 @@ import {
   PIZZA_TYPE,
   type PizzaStyle,
   type PizzaType,
-} from "../index.meta";
+} from "../../index.meta";
 
 class DependentPizzaStore {
   createPizza(style: PizzaStyle, type: PizzaType): string {
