@@ -1,8 +1,8 @@
 import Pizza from "../../Pizza";
 import type { PizzaProps } from "../../Pizza";
 
-import type { Optional } from "../../../index.meta";
-import { pizzaStyleName } from "../../../index.meta";
+import type { Optional } from "../../index.meta";
+import { pizzaStyleName } from "../../index.meta";
 
 type Props = Optional<PizzaProps, "dough" | "sauce">;
 

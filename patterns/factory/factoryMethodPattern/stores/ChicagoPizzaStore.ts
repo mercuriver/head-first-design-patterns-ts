@@ -7,7 +7,7 @@ import {
   ChicagoStylePepperoniPizza,
 } from "../styles/chicago";
 
-import { PIZZA_TYPE, type PizzaType } from "../../index.meta";
+import { PIZZA_TYPE, type PizzaType } from "../index.meta";
 
 class ChicagoPizzaStore extends PizzaStore {
   createPizza(type: PizzaType): Pizza {

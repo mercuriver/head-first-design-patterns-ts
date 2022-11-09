@@ -1,5 +1,5 @@
 import Pizza from "./Pizza";
-import type { PizzaType } from "../index.meta";
+import type { PizzaType } from "./index.meta";
 
 abstract class PizzaStore {
   abstract createPizza(type: PizzaType): Pizza;

@@ -11,7 +11,7 @@ import {
   pizzaTypeName,
   type PizzaStyle,
   type PizzaType,
-} from "../index.meta";
+} from "./index.meta";
 
 const pizzaFactoryAssertion = (
   store: PizzaStore,
