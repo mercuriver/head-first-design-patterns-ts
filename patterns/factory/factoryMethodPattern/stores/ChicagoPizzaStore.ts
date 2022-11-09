@@ -5,7 +5,7 @@ import {
   ChicagoStyleClamPizza,
   ChicagoStyleVeggiePizza,
   ChicagoStylePepperoniPizza,
-} from "../styles/chicago/index";
+} from "../styles/chicago";
 
 import { PIZZA_TYPE, type PizzaType } from "../../index.meta";
 

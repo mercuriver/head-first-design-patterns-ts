@@ -5,7 +5,7 @@ import {
   NYStyleClamPizza,
   NYStyleVeggiePizza,
   NYStylePepperoniPizza,
-} from "../styles/ny/index";
+} from "../styles/ny";
 
 import { PIZZA_TYPE, type PizzaType } from "../../index.meta";
 
