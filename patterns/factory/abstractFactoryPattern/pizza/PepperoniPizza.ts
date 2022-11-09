@@ -1,0 +1,24 @@
+import Pizza from "./Pizza";
+import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory";
+
+class PepperoniPizza extends Pizza {
+  #ingredientFactory;
+
+  public PepperoniPizza(ingredientFactory: PizzaIngredientFactory) {
+    this.#ingredientFactory = ingredientFactory;
+  }
+
+  prepare() {
+    console.log("Preparing " + this.name);
+    this.dough = this.#ingredientFactory.createDough();
+    this.sauce = this.#ingredientFactory.createSauce();
+    this.cheese = this.#ingredientFactory.createCheese();
+
+    this.veggies = this.#ingredientFactory.createVeggies();
+    this.pepperoni = this.#ingredientFactory.createPepperoni();
+
+    console.log(this.toString());
+  }
+}
+
+export default PepperoniPizza;
