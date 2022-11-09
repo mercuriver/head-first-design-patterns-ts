@@ -13,5 +13,5 @@ class FrozenClams implements Clams {
     return "Frozen Clams from Chesapeake Bay";
   }
 }
-
+export type { Clams };
 export { FreshClams, FrozenClams };

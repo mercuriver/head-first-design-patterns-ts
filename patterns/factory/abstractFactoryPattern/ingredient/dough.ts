@@ -14,4 +14,5 @@ class ThinCrustDough implements Dough {
   }
 }
 
+export type { Dough };
 export { ThickCrustDough, ThinCrustDough };

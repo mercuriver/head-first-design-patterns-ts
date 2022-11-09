@@ -14,4 +14,5 @@ class MarinaraSauce implements Sauce {
   }
 }
 
+export type { Sauce };
 export { PlumTomatoSauce, MarinaraSauce };
