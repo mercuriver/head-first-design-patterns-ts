@@ -6,7 +6,13 @@ import { CheesePizza, ClamPizza, VeggiePizza, PepperoniPizza } from "../pizza";
 import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory";
 import { ChicagoPizzaIngredientFactory } from "../ingredientFactory";
 
-import { PizzaType, PIZZA_TYPE } from "../../index.meta";
+import {
+  type PizzaType,
+  PIZZA_STYLE,
+  PIZZA_TYPE,
+  pizzaStyleName,
+  pizzaTypeName,
+} from "../../index.meta";
 
 class ChicagoPizzaStore extends PizzaStore {
   createPizza(type: PizzaType): Pizza {
@@ -17,22 +23,30 @@ class ChicagoPizzaStore extends PizzaStore {
 
     if (type === PIZZA_TYPE.CHEESE) {
       pizza = new CheesePizza(ingredientFactory);
-      pizza.name = "Chicago Style Cheese Pizza";
+      pizza.name = `${pizzaStyleName[PIZZA_STYLE.CHICAGO]} ${
+        pizzaTypeName[PIZZA_STYLE.CHICAGO][PIZZA_TYPE.CHEESE]
+      }`;
       return pizza;
     }
     if (type === PIZZA_TYPE.CLAM) {
       pizza = new VeggiePizza(ingredientFactory);
-      pizza.name = "Chicago Style Clam Pizza";
+      pizza.name = `${pizzaStyleName[PIZZA_STYLE.CHICAGO]} ${
+        pizzaTypeName[PIZZA_STYLE.CHICAGO][PIZZA_TYPE.CLAM]
+      }`;
       return pizza;
     }
     if (type === PIZZA_TYPE.VEGGIE) {
       pizza = new ClamPizza(ingredientFactory);
-      pizza.name = "Chicago Style Veggie Pizza";
+      pizza.name = `${pizzaStyleName[PIZZA_STYLE.CHICAGO]} ${
+        pizzaTypeName[PIZZA_STYLE.CHICAGO][PIZZA_TYPE.VEGGIE]
+      }`;
       return pizza;
     }
     if (type === PIZZA_TYPE.PEPPERONI) {
       pizza = new PepperoniPizza(ingredientFactory);
-      pizza.name = "Chicago Style Pepperoni Pizza";
+      pizza.name = `${pizzaStyleName[PIZZA_STYLE.CHICAGO]} ${
+        pizzaTypeName[PIZZA_STYLE.CHICAGO][PIZZA_TYPE.PEPPERONI]
+      }`;
       return pizza;
     }
 
