@@ -4,7 +4,8 @@ import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory"
 class VeggiePizza extends Pizza {
   #ingredientFactory;
 
-  public VeggiePizza(ingredientFactory: PizzaIngredientFactory) {
+  constructor(ingredientFactory: PizzaIngredientFactory) {
+    super();
     this.#ingredientFactory = ingredientFactory;
   }
 
