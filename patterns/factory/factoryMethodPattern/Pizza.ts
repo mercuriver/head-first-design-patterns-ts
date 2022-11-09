@@ -19,10 +19,10 @@ abstract class Pizza {
   }
 
   prepare(): void {
-    console.log(`준비 중: ${this.#name}`);
+    console.log(`\n준비 중: ${this.#name}`);
     console.log(`${this.#dough} 를 돌리는 중...`);
     console.log(`${this.#sauce}를 뿌리는 중...`);
-    console.log(`토핑를 올리는 중...\n\t${this.#toppings.join("\n\t")}`);
+    console.log(`토핑를 올리는 중...\n    ${this.#toppings.join("\n    ")}\n`);
   }
   bake(): void {
     console.log("175도에서 25분 간 굽기");
