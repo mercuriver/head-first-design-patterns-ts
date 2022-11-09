@@ -7,7 +7,7 @@ abstract class PizzaStore {
   orderPizza(type: PizzaType): Pizza {
     const pizza = this.createPizza(type);
 
-    console.log(`\n--- Making a ${pizza.name} ---`);
+    console.log(`\n\n[제작 요청: ${pizza.name}]`);
     pizza.prepare();
     pizza.bake();
     pizza.cut();

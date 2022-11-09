@@ -10,7 +10,7 @@ class PepperoniPizza extends Pizza {
   }
 
   prepare() {
-    console.log("Preparing " + this.name);
+    console.log(`\n준비 중: ${this.name}`);
     this.dough = this.#ingredientFactory.createDough();
     this.sauce = this.#ingredientFactory.createSauce();
     this.cheese = this.#ingredientFactory.createCheese();
