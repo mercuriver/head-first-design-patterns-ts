@@ -5,7 +5,7 @@ abstract class Pizza {
   #toppings: string[];
 
   prepare() {
-    console.log(`Preparing ${this.name}`);
+    console.log(`\nPreparing ${this.name}`);
   }
 
   bake() {
@@ -43,7 +43,7 @@ abstract class Pizza {
     ingredient.push(this.#sauce);
     ingredient.push(this.#toppings.join(", "));
 
-    return `\n진행 상황:\n${ingredient.join("\n")}`;
+    return `\n구성 요소:\n${ingredient.join("\n")}`;
   }
 }
 

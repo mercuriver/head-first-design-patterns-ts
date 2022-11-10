@@ -13,9 +13,12 @@ class PizzaStore {
     const pizza = this.#factory.createPizza(type);
 
     pizza.prepare();
+
     pizza.bake();
     pizza.cut();
     pizza.box();
+
+    console.log(pizza.toString());
 
     return pizza;
   }
