@@ -1,9 +1,10 @@
 import Pizza from "./Pizza";
+import { pizzaName, PIZZA_TYPE } from "../index.meta";
 
 class VeggiePizza extends Pizza {
   constructor() {
     super();
-    this.name = "Veggie Pizza";
+    this.name = pizzaName[PIZZA_TYPE.VEGGIE];
     this.dough = "Crust";
     this.sauce = "Marinara sauce";
     this.toppings = [
