@@ -77,10 +77,16 @@
 
 객체 사이의 상호의존성을 최소화하여 변경 사항이 생겨도 대응할 수 있는 유연한 객체지향 시스템을 구축할 수 있게 된다.
 
+### [5] 클래스는 확장에는 열려 있어야 하지만 변경에는 닫혀 있어야 한다(OCP)
+
+### [6] 추상화된 것에 의존하게 만들고 구상 클래스에 의존하지 않게 많든다
+
 <hr />
 
 ## 작성한 디자인 패턴
 
 - [x] [전략 패턴 / Strategy](./patterns/strategy/)
 - [x] [옵저버 패턴 / Observer](./patterns/observer/)
-- [ ] 데코레이터 패턴 / Decorator
+- [ ] [데코레이터 패턴 / Decorator](./patterns/decorator/)
+- [ ] [팩토리 패턴 / Factory](./patterns/factory/)
+- [ ] 싱글턴 패턴 / Singleton
