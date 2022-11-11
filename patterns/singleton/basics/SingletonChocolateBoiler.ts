@@ -3,8 +3,8 @@ class SingletonChocolateBoiler {
   #empty: boolean;
   #boiled: boolean;
 
-  // @ts-ignore // Todo: ES2022 classfield, constructor에 적용하는 법 알아보기
-  #constructor() {
+  // Todo: ES2022 classfield, constructor에 적용하는 법 알아보기
+  private constructor() {
     this.#empty = true;
     this.#boiled = false;
   }
@@ -30,21 +30,29 @@ class SingletonChocolateBoiler {
     if (this.#isEmpty()) {
       this.#empty = false;
       this.#boiled = false;
-      // 보일러에 우유와 초콜릿을 혼찹한 재료를 넣음
+      console.log("[fill] 보일러에 우유와 초콜릿을 혼찹한 재료를 넣음");
+    } else {
+      console.warn("[fill] 작업 실패");
     }
   }
 
   drain() {
     if (!this.#isEmpty() && this.#isBoiled()) {
-      // 끓인 재료를 다음 단계로 넘김
+      console.log("[drain] 끓인 재료를 다음 단계로 넘김");
       this.#empty = true;
+    } else {
+      console.warn("[drain] 작업 실패");
     }
   }
 
   boil() {
     if (!this.#isEmpty() && !this.#isBoiled()) {
-      // 재료를 끓임
+      console.log("[boil] 재료를 끓임");
       this.#boiled = true;
+    } else {
+      console.warn("[boil] 작업 실패");
     }
   }
 }
+
+export default SingletonChocolateBoiler;
