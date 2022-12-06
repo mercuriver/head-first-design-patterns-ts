@@ -1,6 +1,4 @@
-interface Pepperoni {
-  toString(): string;
-}
+import Pepperoni from "./Pepperoni";
 
 class SlicedPepperoni implements Pepperoni {
   toString() {
@@ -8,5 +6,4 @@ class SlicedPepperoni implements Pepperoni {
   }
 }
 
-export type { Pepperoni };
 export { SlicedPepperoni };

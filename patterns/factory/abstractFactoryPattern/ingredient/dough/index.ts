@@ -1,6 +1,4 @@
-interface Dough {
-  toString(): string;
-}
+import Dough from "./Dough";
 
 class ThickCrustDough implements Dough {
   toString() {
@@ -14,5 +12,4 @@ class ThinCrustDough implements Dough {
   }
 }
 
-export type { Dough };
 export { ThickCrustDough, ThinCrustDough };

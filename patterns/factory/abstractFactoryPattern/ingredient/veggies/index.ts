@@ -1,6 +1,4 @@
-interface Veggies {
-  toString(): string;
-}
+import Veggies from "./Veggies";
 
 class BlackOlives implements Veggies {
   toString() {
@@ -44,5 +42,4 @@ class RedPepper implements Veggies {
   }
 }
 
-export type { Veggies };
 export { BlackOlives, Spinach, Eggplant, Mushroom, Onion, Garlic, RedPepper };

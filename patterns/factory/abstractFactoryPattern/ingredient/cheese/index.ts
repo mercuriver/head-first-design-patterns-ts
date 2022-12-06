@@ -1,6 +1,4 @@
-interface Cheese {
-  toString(): string;
-}
+import Cheese from "./Cheese";
 
 class ParmesanCheese implements Cheese {
   toString() {
@@ -20,5 +18,4 @@ class ReggianoCheese implements Cheese {
   }
 }
 
-export type { Cheese };
 export { ParmesanCheese, MozzarellaCheese, ReggianoCheese };

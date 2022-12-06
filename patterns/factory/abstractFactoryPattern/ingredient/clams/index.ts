@@ -1,6 +1,4 @@
-interface Clams {
-  toString(): string;
-}
+import Clams from "./Clams";
 
 class FreshClams implements Clams {
   toString() {
@@ -13,5 +11,5 @@ class FrozenClams implements Clams {
     return "Frozen Clams from Chesapeake Bay";
   }
 }
-export type { Clams };
+
 export { FreshClams, FrozenClams };

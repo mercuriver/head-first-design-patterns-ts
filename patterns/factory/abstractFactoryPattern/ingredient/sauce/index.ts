@@ -1,6 +1,4 @@
-interface Sauce {
-  toString(): string;
-}
+import Sauce from "./Sauce";
 
 class PlumTomatoSauce implements Sauce {
   toString() {
@@ -14,5 +12,4 @@ class MarinaraSauce implements Sauce {
   }
 }
 
-export type { Sauce };
 export { PlumTomatoSauce, MarinaraSauce };
