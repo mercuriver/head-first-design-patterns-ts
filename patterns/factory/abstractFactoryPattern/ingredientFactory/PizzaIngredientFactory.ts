@@ -1,9 +1,9 @@
-import type { Dough } from "../ingredient/dough";
-import type { Sauce } from "../ingredient/sauce";
-import type { Cheese } from "../ingredient/cheese";
-import type { Clams } from "../ingredient/clams";
-import type { Veggies } from "../ingredient/veggies";
-import type { Pepperoni } from "../ingredient/Pepperoni";
+import Dough from "../ingredient/dough/Dough";
+import Sauce from "../ingredient/sauce/Sauce";
+import Cheese from "../ingredient/cheese/Cheese";
+import Clams from "../ingredient/clams/Clams";
+import Veggies from "../ingredient/veggies/Veggies";
+import Pepperoni from "../ingredient/Pepperoni/Pepperoni";
 
 interface PizzaIngredientFactory {
   createDough(): Dough;
