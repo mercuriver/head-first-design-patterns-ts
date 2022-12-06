@@ -1,7 +1,10 @@
 import { expect } from "chai";
 
-import PizzaStore from "./pizzaStore/PizzaStore";
-import { NYPizzaStore, ChicagoPizzaStore } from "./pizzaStore";
+import PizzaStore from "./clientWithFactoryMethodPattern/pizzaStore/PizzaStore";
+import {
+  NYPizzaStore,
+  ChicagoPizzaStore,
+} from "./clientWithFactoryMethodPattern/pizzaStore";
 
 import {
   PIZZA_STYLE,
