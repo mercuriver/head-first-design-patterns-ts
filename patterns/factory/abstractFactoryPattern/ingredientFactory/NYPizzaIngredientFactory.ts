@@ -8,28 +8,30 @@ import { SlicedPepperoni } from "../ingredient/pepperoni";
 import { FreshClams } from "../ingredient/clams";
 
 class NYPizzaIngredientFactory implements PizzaIngredientFactory {
+  // ConcreteFactory_1
+
   createDough() {
-    return new ThinCrustDough();
+    return new ThinCrustDough(); // ConcreateProduct
   }
 
   createSauce() {
-    return new MarinaraSauce();
+    return new MarinaraSauce(); // ConcreateProduct
   }
 
   createCheese() {
-    return new ReggianoCheese();
+    return new ReggianoCheese(); // ConcreateProduct
   }
 
   createVeggies() {
-    return [new Garlic(), new Onion(), new Mushroom(), new RedPepper()];
+    return [new Garlic(), new Onion(), new Mushroom(), new RedPepper()]; // [ConcreateProduct]
   }
 
   createPepperoni() {
-    return new SlicedPepperoni();
+    return new SlicedPepperoni(); // ConcreateProduct
   }
 
   createClam() {
-    return new FreshClams();
+    return new FreshClams(); // ConcreateProduct
   }
 }
 

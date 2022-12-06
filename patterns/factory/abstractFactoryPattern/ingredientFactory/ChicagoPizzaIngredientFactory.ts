@@ -8,28 +8,30 @@ import { SlicedPepperoni } from "../ingredient/pepperoni";
 import { FrozenClams } from "../ingredient/clams";
 
 class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
+  // ConcreteFactory_1
+
   createDough() {
-    return new ThickCrustDough();
+    return new ThickCrustDough(); // ConcreateProduct
   }
 
   createSauce() {
-    return new PlumTomatoSauce();
+    return new PlumTomatoSauce(); // ConcreateProduct
   }
 
   createCheese() {
-    return new MozzarellaCheese();
+    return new MozzarellaCheese(); // ConcreateProduct
   }
 
   createVeggies() {
-    return [new BlackOlives(), new Spinach(), new Eggplant()];
+    return [new BlackOlives(), new Spinach(), new Eggplant()]; // [ConcreateProduct]
   }
 
   createPepperoni() {
-    return new SlicedPepperoni();
+    return new SlicedPepperoni(); // ConcreateProduct
   }
 
   createClam() {
-    return new FrozenClams();
+    return new FrozenClams(); // ConcreateProduct
   }
 }
 

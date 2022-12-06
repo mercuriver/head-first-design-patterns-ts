@@ -1,4 +1,5 @@
 interface Veggies {
+  // AbstractProduct_4
   toString(): string;
 }
 

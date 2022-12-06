@@ -1,4 +1,5 @@
 interface Cheese {
+  // AbstractProduct_3
   toString(): string;
 }
 

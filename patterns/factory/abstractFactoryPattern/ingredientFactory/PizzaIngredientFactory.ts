@@ -6,12 +6,14 @@ import Veggies from "../ingredient/veggies/Veggies";
 import Pepperoni from "../ingredient/Pepperoni/Pepperoni";
 
 interface PizzaIngredientFactory {
-  createDough(): Dough;
-  createSauce(): Sauce;
-  createCheese(): Cheese;
-  createVeggies(): Veggies[];
-  createPepperoni(): Pepperoni;
-  createClam(): Clams;
+  // ConcreateProduct
+
+  createDough(): Dough; // AbstractProduct_1
+  createSauce(): Sauce; // AbstractProduct_2
+  createCheese(): Cheese; // AbstractProduct_3
+  createVeggies(): Veggies[]; // AbstractProduct_4
+  createPepperoni(): Pepperoni; // AbstractProduct_5
+  createClam(): Clams; // AbstractProduct_6
 }
 
 export default PizzaIngredientFactory;

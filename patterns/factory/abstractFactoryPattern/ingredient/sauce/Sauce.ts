@@ -1,4 +1,5 @@
 interface Sauce {
+  // AbstractProduct_2
   toString(): string;
 }
 
