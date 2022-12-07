@@ -1,5 +1,5 @@
 import Pizza from "./Pizza";
-import PizzaIngredientFactory from "../../ingredientFactory/PizzaIngredientFactory";
+import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory";
 
 class ClamPizza extends Pizza {
   #ingredientFactory;

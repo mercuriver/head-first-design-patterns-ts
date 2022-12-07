@@ -1,9 +1,9 @@
-import Dough from "../../ingredient/dough/Dough";
-import Sauce from "../../ingredient/sauce/Sauce";
-import Cheese from "../../ingredient/cheese/Cheese";
-import Clams from "../../ingredient/clams/Clams";
-import Veggies from "../../ingredient/veggies/Veggies";
-import Pepperoni from "../../ingredient/Pepperoni/Pepperoni";
+import Dough from "../ingredient/dough/Dough";
+import Sauce from "../ingredient/sauce/Sauce";
+import Cheese from "../ingredient/cheese/Cheese";
+import Clams from "../ingredient/clams/Clams";
+import Veggies from "../ingredient/veggies/Veggies";
+import Pepperoni from "../ingredient/Pepperoni/Pepperoni";
 
 abstract class Pizza {
   #name: string;

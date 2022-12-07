@@ -1,14 +1,14 @@
 import Pizza from "./pizza/Pizza";
 import { CheesePizza, ClamPizza, VeggiePizza, PepperoniPizza } from "./pizza";
 
-import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory";
+import PizzaIngredientFactory from "./ingredientFactory/PizzaIngredientFactory";
 
 import {
   type PizzaType,
   PIZZA_TYPE,
   pizzaStyleName,
   pizzaTypeName,
-} from "../../index.meta";
+} from "../index.meta";
 
 class PizzaStore {
   createPizza(factory: PizzaIngredientFactory, type: PizzaType): Pizza {

@@ -1,7 +1,7 @@
 import Pizza from "./Pizza";
-import PizzaIngredientFactory from "../../ingredientFactory/PizzaIngredientFactory";
+import PizzaIngredientFactory from "../ingredientFactory/PizzaIngredientFactory";
 
-class CheesePizza extends Pizza {
+class VeggiePizza extends Pizza {
   #ingredientFactory;
 
   constructor(ingredientFactory: PizzaIngredientFactory) {
@@ -14,8 +14,9 @@ class CheesePizza extends Pizza {
     this.dough = this.#ingredientFactory.createDough();
     this.sauce = this.#ingredientFactory.createSauce();
     this.cheese = this.#ingredientFactory.createCheese();
+    this.veggies = this.#ingredientFactory.createVeggies();
     console.log(this.toString());
   }
 }
 
-export default CheesePizza;
+export default VeggiePizza;
