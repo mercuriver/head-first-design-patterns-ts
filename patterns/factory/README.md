@@ -1,3 +1,5 @@
+[작성 중]
+
 # 팩토리 패턴 (Factory Pattern)
 
 팩토리 매소드 패턴의 목적, 어떤 인스턴스 생성의 책임을 구체적인 클래스가 아닌 추상적인 인터페이스의 메소드로 감싸는 것
@@ -28,6 +30,6 @@ orderPizza는 인터페이스로 구현된 pizza를 통해 기술되어, 이후�
 
 ## 하위 페이지
 
-- [간단한 팩토리 / Simple Factory)](./simpleFactory/)
+- [간단한 팩토리 / Simple Factory](./simpleFactory/)
 - [팩토리 메소드 패턴 / Factory Method Pattern](./factoryMethodPattern/)
 - [추상 팩토리 패턴 / Abstract Factory Pattern](./abstractFactoryPattern/)
