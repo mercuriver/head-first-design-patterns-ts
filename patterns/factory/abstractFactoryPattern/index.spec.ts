@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-import PizzaStore from "./clientWithFactoryMethodPattern/PizzaStore";
+import PizzaStore from "./PizzaStore";
 
 import PizzaIngredientFactory from "./ingredientFactory/PizzaIngredientFactory";
 import {
