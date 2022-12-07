@@ -6,7 +6,7 @@ import PizzaIngredientFactory from "./ingredientFactory/PizzaIngredientFactory";
 import { type PizzaType, PIZZA_TYPE } from "../index.meta";
 
 class PizzaStore {
-  createPizza(factory: PizzaIngredientFactory, type: PizzaType): Pizza {
+  #createPizza(factory: PizzaIngredientFactory, type: PizzaType): Pizza {
     if (type === PIZZA_TYPE.CHEESE) {
       return new CheesePizza(factory);
     }
@@ -24,7 +24,7 @@ class PizzaStore {
   }
 
   orderPizza(factory: PizzaIngredientFactory, type: PizzaType): Pizza {
-    const pizza = this.createPizza(factory, type);
+    const pizza = this.#createPizza(factory, type);
 
     console.log(`\n\n[제작 요청: ${pizza.name}]`);
     pizza.prepare();
