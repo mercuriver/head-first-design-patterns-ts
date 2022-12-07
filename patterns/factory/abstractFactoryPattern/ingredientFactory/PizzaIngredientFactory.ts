@@ -5,8 +5,12 @@ import Clams from "../ingredient/clams/Clams";
 import Veggies from "../ingredient/veggies/Veggies";
 import Pepperoni from "../ingredient/Pepperoni/Pepperoni";
 
+import { type PizzaStyle } from "../../index.meta";
+
 interface PizzaIngredientFactory {
   // ConcreateProduct
+
+  get style(): PizzaStyle;
 
   createDough(): Dough; // AbstractProduct_1
   createSauce(): Sauce; // AbstractProduct_2

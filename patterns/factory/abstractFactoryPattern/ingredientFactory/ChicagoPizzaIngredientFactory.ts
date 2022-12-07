@@ -7,8 +7,14 @@ import { BlackOlives, Spinach, Eggplant } from "../ingredient/veggies";
 import { SlicedPepperoni } from "../ingredient/pepperoni";
 import { FrozenClams } from "../ingredient/clams";
 
+import { PIZZA_STYLE } from "../../index.meta";
+
 class ChicagoPizzaIngredientFactory implements PizzaIngredientFactory {
   // ConcreteFactory_1
+
+  get style() {
+    return PIZZA_STYLE.CHICAGO;
+  }
 
   createDough() {
     return new ThickCrustDough(); // ConcreateProduct

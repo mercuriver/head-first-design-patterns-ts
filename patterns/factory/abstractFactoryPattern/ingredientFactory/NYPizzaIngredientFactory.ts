@@ -7,8 +7,14 @@ import { Garlic, Onion, Mushroom, RedPepper } from "../ingredient/veggies";
 import { SlicedPepperoni } from "../ingredient/pepperoni";
 import { FreshClams } from "../ingredient/clams";
 
+import { PIZZA_STYLE } from "../../index.meta";
+
 class NYPizzaIngredientFactory implements PizzaIngredientFactory {
   // ConcreteFactory_1
+
+  get style() {
+    return PIZZA_STYLE.NEW_YORK;
+  }
 
   createDough() {
     return new ThinCrustDough(); // ConcreateProduct
