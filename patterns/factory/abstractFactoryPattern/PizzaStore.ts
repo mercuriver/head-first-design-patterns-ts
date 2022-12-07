@@ -3,44 +3,21 @@ import { CheesePizza, ClamPizza, VeggiePizza, PepperoniPizza } from "./pizza";
 
 import PizzaIngredientFactory from "./ingredientFactory/PizzaIngredientFactory";
 
-import {
-  type PizzaType,
-  PIZZA_TYPE,
-  pizzaStyleName,
-  pizzaTypeName,
-} from "../index.meta";
+import { type PizzaType, PIZZA_TYPE } from "../index.meta";
 
 class PizzaStore {
   createPizza(factory: PizzaIngredientFactory, type: PizzaType): Pizza {
-    let pizza: Pizza;
-
     if (type === PIZZA_TYPE.CHEESE) {
-      pizza = new CheesePizza(factory);
-      pizza.name = `${pizzaStyleName[factory.style]} ${
-        pizzaTypeName[factory.style][PIZZA_TYPE.CHEESE]
-      }`;
-      return pizza;
+      return new CheesePizza(factory);
     }
     if (type === PIZZA_TYPE.CLAM) {
-      pizza = new ClamPizza(factory);
-      pizza.name = `${pizzaStyleName[factory.style]} ${
-        pizzaTypeName[factory.style][PIZZA_TYPE.CLAM]
-      }`;
-      return pizza;
+      return new ClamPizza(factory);
     }
     if (type === PIZZA_TYPE.VEGGIE) {
-      pizza = new VeggiePizza(factory);
-      pizza.name = `${pizzaStyleName[factory.style]} ${
-        pizzaTypeName[factory.style][PIZZA_TYPE.VEGGIE]
-      }`;
-      return pizza;
+      return new VeggiePizza(factory);
     }
     if (type === PIZZA_TYPE.PEPPERONI) {
-      pizza = new PepperoniPizza(factory);
-      pizza.name = `${pizzaStyleName[factory.style]} ${
-        pizzaTypeName[factory.style][PIZZA_TYPE.PEPPERONI]
-      }`;
-      return pizza;
+      return new PepperoniPizza(factory);
     }
 
     return null;
