@@ -115,3 +115,16 @@
 - [ ] [데코레이터 패턴 / Decorator](./patterns/decorator/)
 - [ ] [팩토리 패턴 / Factory](./patterns/factory/)
 - [ ] 싱글턴 패턴 / Singleton(./patterns/singleton/)
+
+## 참고 자료
+
+### 서적
+
+- [헤드 퍼스트 디자인 패턴](https://product.kyobobook.co.kr/detail/S000001810483)
+- [GoF의 디자인 패턴](https://product.kyobobook.co.kr/detail/S000001962303)
+- [클린 아키텍처](https://product.kyobobook.co.kr/detail/S000001033082)
+
+### 온라인
+
+- https://refactoring.guru/ko/design-patterns
+- https://www.inflearn.com/course/%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4
