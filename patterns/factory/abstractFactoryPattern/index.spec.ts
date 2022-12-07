@@ -1,10 +1,12 @@
 import { expect } from "chai";
 
-import PizzaStore from "./clientWithFactoryMethodPattern/pizzaStore/PizzaStore";
+import PizzaStore from "./clientWithFactoryMethodPattern/PizzaStore";
+
+import PizzaIngredientFactory from "./ingredientFactory/PizzaIngredientFactory";
 import {
-  NYPizzaStore,
-  ChicagoPizzaStore,
-} from "./clientWithFactoryMethodPattern/pizzaStore";
+  NYPizzaIngredientFactory,
+  ChicagoPizzaIngredientFactory,
+} from "./ingredientFactory";
 
 import {
   PIZZA_STYLE,
@@ -28,15 +30,16 @@ describe(`[추상 팩토리 패턴] 테스트`, function () {
   let seq = 1;
 
   it(`[${seq++}] 뉴욕 피자 생성`, function () {
-    const nyStore = new NYPizzaStore();
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.CHEESE);
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.CLAM);
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.VEGGIE);
     pizzaFactoryAssertion(nyStore, PIZZA_STYLE.NEW_YORK, PIZZA_TYPE.PEPPERONI);
+    const ingredientFactory: PizzaIngredientFactory =
+      new NYPizzaIngredientFactory();
+
   });
 
   it(`[${seq++}] 시카고 치즈 피자 생성`, function () {
-    const chicagoStore = new ChicagoPizzaStore();
     pizzaFactoryAssertion(chicagoStore, PIZZA_STYLE.CHICAGO, PIZZA_TYPE.CHEESE);
     pizzaFactoryAssertion(chicagoStore, PIZZA_STYLE.CHICAGO, PIZZA_TYPE.CLAM);
     pizzaFactoryAssertion(chicagoStore, PIZZA_STYLE.CHICAGO, PIZZA_TYPE.VEGGIE);
@@ -45,5 +48,8 @@ describe(`[추상 팩토리 패턴] 테스트`, function () {
       PIZZA_STYLE.CHICAGO,
       PIZZA_TYPE.PEPPERONI
     );
+    const ingredientFactory: PizzaIngredientFactory =
+      new ChicagoPizzaIngredientFactory();
+
   });
 });
