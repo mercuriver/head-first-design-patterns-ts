@@ -114,7 +114,7 @@
 - [x] [옵저버 패턴 / Observer](./patterns/observer/)
 - [ ] [데코레이터 패턴 / Decorator](./patterns/decorator/)
 - [x] [팩토리 패턴 / Factory](./patterns/factory/)
-- [ ] 싱글턴 패턴 / Singleton(./patterns/singleton/)
+- [ ] [싱글턴 패턴 / Singleton](./patterns/singleton/)
 
 ## 참고 자료
 
