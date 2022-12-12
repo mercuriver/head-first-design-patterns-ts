@@ -1,5 +1,5 @@
 import CondimentDecorator from "../core/CondimentDecorator";
-import { COST } from "../index.meta";
+import { COST } from "../../index.meta";
 
 class Milk extends CondimentDecorator {
   cost(): number {

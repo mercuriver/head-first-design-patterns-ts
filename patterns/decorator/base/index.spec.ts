@@ -1,6 +1,6 @@
 import { expect } from "chai";
 
-import { COST } from "./index.meta";
+import { COST } from "../index.meta";
 
 import { HouseBlend } from "./beverage";
 import { Milk } from "./extra";
