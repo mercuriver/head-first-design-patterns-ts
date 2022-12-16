@@ -42,20 +42,44 @@ describe(`[커멘드 패턴] 테스트`, function () {
     // Todo: 등록 상태 체크
   });
 
-  it(`[${seq++}] 조명 on/off 동작 테스트`, function () {
+  it(`[${seq++}] 조명 on/off/undo 동작 테스트`, function () {
     expect(lightLivingRoom.level).to.equal(0);
     expect(lightKitchen.level).to.equal(0);
 
+    console.log("[invoker - 거실] on");
     invoker.onButtonWasPushed(0);
     expect(lightLivingRoom.level).to.equal(100);
 
+    console.log("[invoker - 주방] on");
     invoker.onButtonWasPushed(1);
     expect(lightKitchen.level).to.equal(100);
 
+    console.log("[invoker - 거실] off");
     invoker.offButtonWasPushed(0);
     expect(lightLivingRoom.level).to.equal(0);
 
+    console.log("[invoker - 주방] off");
     invoker.offButtonWasPushed(1);
     expect(lightKitchen.level).to.equal(0);
+
+    console.log("[invoker - 주방] undo");
+    invoker.undoButtonWasPushed();
+    expect(lightKitchen.level).to.equal(100);
+
+    console.log("[invoker - 주방] undo - 재동작");
+    invoker.undoButtonWasPushed();
+    expect(lightKitchen.level).to.equal(100);
+
+    console.log("[invoker - 거실] on");
+    expect(lightLivingRoom.level).to.equal(0);
+    invoker.onButtonWasPushed(0);
+    expect(lightLivingRoom.level).to.equal(100);
+
+    console.log("[invoker - 거실] undo");
+    invoker.undoButtonWasPushed();
+    expect(lightLivingRoom.level).to.equal(0);
+    console.log("[invoker - 거실] undo - 재동작");
+    invoker.undoButtonWasPushed();
+    expect(lightLivingRoom.level).to.equal(0);
   });
 });
