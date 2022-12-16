@@ -18,15 +18,6 @@ describe(`[커멘드 패턴] 테스트`, function () {
   });
 
   it(`[${seq++}] 조명 커멘드 등록`, function () {
-    // const lightLivingRoomOnCommand = new LightOnCommand(lightLivingRoom);
-    // const lightLivingRoomOffCommand = new LightOffCommand(lightLivingRoom);
-
-    // const lightKitchenOnCommand = new LightOnCommand(lightKitchen);
-    // const lightKitchenOffCommand = new LightOffCommand(lightKitchen);
-
-    // invoker.setCommand(0, lightLivingRoomOnCommand, lightLivingRoomOffCommand);
-    // invoker.setCommand(1, lightKitchenOnCommand, lightKitchenOffCommand);
-
     invoker.setCommand(
       0,
       new LightOnCommand(lightLivingRoom),
