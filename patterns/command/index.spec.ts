@@ -1,9 +1,8 @@
 import { expect } from "chai";
 
 import Invoker from "./Invoker";
-import Light from "./Light";
-import LightOnCommand from "./LightOnCommand";
-import LightOffCommand from "./LightOffCommand";
+import { Light } from "./command";
+import { LightOnCommand, LightOffCommand } from "./ConcreteCommand";
 
 describe(`[커멘드 패턴] 테스트`, function () {
   let seq = 1;

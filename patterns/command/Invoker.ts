@@ -1,6 +1,5 @@
-import Command from "./Command";
-
-import NoCommand from "./NoCommand";
+import Command from "./command/Command";
+import { NoCommand } from "./command";
 
 const BUTTON_LENGTH = 7;
 
