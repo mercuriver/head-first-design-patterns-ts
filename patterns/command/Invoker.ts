@@ -39,7 +39,8 @@ class Invoker {
       return `[slot ${index}] ${onCommand.constructor.name} ${offCommand.constructor.name}`;
     });
 
-    result.unshift(`\n------ Remote Control -------\n`);
+    result.unshift(`\n------ Remote Control List Start -------\n`);
+    result.push(`\n------ Remote Control List End -------\n`);
     return result.join("\n");
   }
 }
