@@ -7,10 +7,12 @@ const BUTTON_LENGTH = 7;
 class Invoker {
   #onCommands: Command[];
   #offCommands: Command[];
+  #undoCommand: Command;
 
   constructor() {
     this.#onCommands = [];
     this.#offCommands = [];
+    this.#undoCommand = new NoCommand();
 
     this.#onCommands.length = BUTTON_LENGTH;
     this.#offCommands.length = BUTTON_LENGTH;
@@ -26,10 +28,16 @@ class Invoker {
 
   onButtonWasPushed(slot: number): void {
     this.#onCommands[slot].execute();
+    this.#undoCommand = this.#onCommands[slot];
   }
 
   offButtonWasPushed(slot: number): void {
     this.#offCommands[slot].execute();
+    this.#undoCommand = this.#offCommands[slot];
+  }
+
+  undoButtonWasPushed(): void {
+    this.#undoCommand.undo();
   }
 
   toString(): string {
