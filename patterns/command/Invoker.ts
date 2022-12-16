@@ -35,12 +35,12 @@ class Invoker {
   toString(): string {
     const result = this.#onCommands.map((_, index) => {
       const onCommand = this.#onCommands[index];
-      const offCommand = this.#onCommands[index];
-      return `[slot ${index}] ${onCommand} ${offCommand}`;
+      const offCommand = this.#offCommands[index];
+      return `[slot ${index}] ${onCommand.constructor.name} ${offCommand.constructor.name}`;
     });
 
     result.unshift(`\n------ Remote Control -------\n`);
-    return result.join("");
+    return result.join("\n");
   }
 }
 
