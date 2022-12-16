@@ -8,12 +8,12 @@ class Light {
 
   on(): void {
     this.#level = 100;
-    console.log("Light is on");
+    console.log(`[${this.#location}] Light is on`);
   }
 
   off(): void {
     this.#level = 0;
-    console.log("Light is off");
+    console.log(`[${this.#location}] Light is off`);
   }
 
   dim(level: number): void {
@@ -22,7 +22,7 @@ class Light {
     if (level == 0) {
       this.off();
     } else {
-      console.log("Light is dimmed to " + level + "%");
+      console.log(`[${this.#location}] Light is dimmed to ${level}%`);
     }
   }
 
