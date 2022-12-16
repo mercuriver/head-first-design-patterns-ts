@@ -5,20 +5,23 @@ import NoCommand from "./NoCommand";
 const BUTTON_LENGTH = 7;
 
 class Invoker {
+  #noCommand: Command;
   #onCommands: Command[];
   #offCommands: Command[];
   #undoCommand: Command;
 
   constructor() {
+    this.#noCommand = new NoCommand();
+
     this.#onCommands = [];
     this.#offCommands = [];
-    this.#undoCommand = new NoCommand();
+    this.#undoCommand = this.#noCommand;
 
     this.#onCommands.length = BUTTON_LENGTH;
     this.#offCommands.length = BUTTON_LENGTH;
 
-    this.#onCommands.fill(new NoCommand());
-    this.#offCommands.fill(new NoCommand());
+    this.#onCommands.fill(this.#noCommand);
+    this.#offCommands.fill(this.#noCommand);
   }
 
   setCommand(slot: number, onCommand: Command, offCommand: Command): void {
@@ -26,14 +29,20 @@ class Invoker {
     this.#offCommands[slot] = offCommand;
   }
 
+  #getSlot = (slot: number, pool: Command[]): Command =>
+    slot >= 0 && slot < pool.length ? pool[slot] : this.#noCommand;
+
+  #callExecute(command: Command): void {
+    command.execute();
+    this.#undoCommand = command;
+  }
+
   onButtonWasPushed(slot: number): void {
-    this.#onCommands[slot].execute();
-    this.#undoCommand = this.#onCommands[slot];
+    this.#callExecute(this.#getSlot(slot, this.#onCommands));
   }
 
   offButtonWasPushed(slot: number): void {
-    this.#offCommands[slot].execute();
-    this.#undoCommand = this.#offCommands[slot];
+    this.#callExecute(this.#getSlot(slot, this.#offCommands));
   }
 
   undoButtonWasPushed(): void {
