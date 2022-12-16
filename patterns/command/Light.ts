@@ -4,6 +4,7 @@ class Light {
 
   constructor(location: string) {
     this.#location = location;
+    this.#level = 0;
   }
 
   on(): void {
