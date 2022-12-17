@@ -1,5 +1,5 @@
-import Command from "./command/Command";
-import { NoCommand } from "./command";
+import Command from "./Command";
+import { NoCommand } from "./ConcreteCommand";
 
 const BUTTON_LENGTH = 7;
 

@@ -1,5 +1,5 @@
-import Command from "../command/Command";
-import { Light } from "../command";
+import Command from "../Command";
+import Light from "../Light";
 
 class LightOnCommand implements Command {
   #light: Light;
