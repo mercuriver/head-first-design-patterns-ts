@@ -1,8 +1,12 @@
 import { expect } from "chai";
 
 import Invoker from "./Invoker";
-import { Light } from "./command";
-import { LightOnCommand, LightOffCommand } from "./ConcreteCommand";
+import Light from "./Light";
+import {
+  LightOnCommand,
+  LightOffCommand,
+  MacroCommand,
+} from "./ConcreteCommand";
 
 describe(`[커멘드 패턴] 테스트`, function () {
   let seq = 1;
@@ -96,5 +100,34 @@ describe(`[커멘드 패턴] 테스트`, function () {
     console.log("[invoker - 주방] undo - 재동작");
     invoker.undoButtonWasPushed();
     expect(lightKitchen.level).to.equal(0);
+  });
+
+  it(`[${seq++}] 복합 커멘드 on/off 동작 테스트`, function () {
+    const lightOn = [
+      new LightOnCommand(lightLivingRoom),
+      new LightOnCommand(lightKitchen),
+    ];
+    const lightOff = [
+      new LightOffCommand(lightLivingRoom),
+      new LightOffCommand(lightKitchen),
+    ];
+
+    invoker.setCommand(
+      2,
+      new MacroCommand(lightOn),
+      new MacroCommand(lightOff)
+    );
+
+    console.log("[invoker - 조명 그룹] 등록");
+    console.log(invoker.toString());
+
+    console.log("[invoker - 조명 그룹] on");
+    invoker.onButtonWasPushed(2);
+
+    console.log("[invoker - 조명 그룹] off");
+    invoker.offButtonWasPushed(2);
+
+    console.log("[invoker - 조명 그룹] undo");
+    invoker.undoButtonWasPushed(0);
   });
 });
