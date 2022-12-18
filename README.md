@@ -115,6 +115,7 @@
 - [x] [데코레이터 패턴 / Decorator](./patterns/decorator/)
 - [x] [팩토리 패턴 / Factory](./patterns/factory/)
 - [x] [싱글턴 패턴 / Singleton](./patterns/singleton/)
+- [ ] [커맨드 패턴 / Command](./patterns/command/)
 
 ## 참고 자료
 
