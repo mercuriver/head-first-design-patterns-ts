@@ -1,10 +1,12 @@
 import { expect } from "chai";
 
 import Invoker from "./Invoker";
-import { Light } from "./Receiver";
+import { Light, TV } from "./Receiver";
 import {
   LightOnCommand,
   LightOffCommand,
+  TVOnCommand,
+  TVOffCommand,
   MacroCommand,
 } from "./ConcreteCommand";
 
@@ -103,31 +105,35 @@ describe(`[커멘드 패턴] 테스트`, function () {
   });
 
   it(`[${seq++}] 복합 커멘드 on/off 동작 테스트`, function () {
-    const lightOn = [
+    const tv = new TV("거실");
+
+    const commandOn = [
+      new TVOnCommand(tv),
       new LightOnCommand(lightLivingRoom),
       new LightOnCommand(lightKitchen),
     ];
-    const lightOff = [
+    const commandOff = [
+      new TVOffCommand(tv),
       new LightOffCommand(lightLivingRoom),
       new LightOffCommand(lightKitchen),
     ];
 
     invoker.setCommand(
       2,
-      new MacroCommand(lightOn),
-      new MacroCommand(lightOff)
+      new MacroCommand(commandOn),
+      new MacroCommand(commandOff)
     );
 
-    console.log("[invoker - 조명 그룹] 등록");
+    console.log("[invoker - 복합 커멘드] 등록");
     console.log(invoker.toString());
 
-    console.log("[invoker - 조명 그룹] on");
+    console.log("[invoker - 복합 커멘드] on");
     invoker.onButtonWasPushed(2);
 
-    console.log("[invoker - 조명 그룹] off");
+    console.log("[invoker - 복합 커멘드] off");
     invoker.offButtonWasPushed(2);
 
-    console.log("[invoker - 조명 그룹] undo");
+    console.log("[invoker - 복합 커멘드] undo");
     invoker.undoButtonWasPushed(0);
   });
 });
