@@ -1,7 +1,7 @@
 import { expect } from "chai";
 
 import Invoker from "./Invoker";
-import Light from "./Light";
+import { Light } from "./Receiver";
 import {
   LightOnCommand,
   LightOffCommand,
