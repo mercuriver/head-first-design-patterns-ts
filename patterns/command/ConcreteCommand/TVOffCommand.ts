@@ -1,4 +1,4 @@
-import Command from "../Command";
+import Command from "../interfaces/Command";
 import { TV } from "../Receiver";
 
 class TVOffCommand implements Command {

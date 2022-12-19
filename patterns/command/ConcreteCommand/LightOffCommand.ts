@@ -1,4 +1,4 @@
-import Command from "../Command";
+import Command from "../interfaces/Command";
 import { Light } from "../Receiver";
 
 class LightOffCommand implements Command {

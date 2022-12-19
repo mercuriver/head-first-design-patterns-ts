@@ -1,4 +1,4 @@
-import Command from "./Command";
+import Command from "./interfaces/Command";
 import { NoCommand } from "./ConcreteCommand";
 
 const BUTTON_LENGTH = 7;

@@ -18,12 +18,16 @@ describe(`[커멘드 패턴] 테스트`, function () {
   let lightKitchen;
 
   beforeEach(() => {
+    // 인보커 생성
     invoker = new Invoker();
+
+    // 리시버 생성
     lightLivingRoom = new Light("거실");
     lightKitchen = new Light("주방");
   });
 
   const setCommand = () => {
+    // 인보커에 커멘드 구상 클래스 등록
     invoker.setCommand(
       0,
       new LightOnCommand(lightLivingRoom),
@@ -105,8 +109,10 @@ describe(`[커멘드 패턴] 테스트`, function () {
   });
 
   it(`[${seq++}] 복합 커멘드 on/off 동작 테스트`, function () {
+    // 리시버
     const tv = new TV("거실");
 
+    // (복합) 커멘드 구상 클래스
     const commandOn = [
       new TVOnCommand(tv),
       new LightOnCommand(lightLivingRoom),
@@ -118,6 +124,7 @@ describe(`[커멘드 패턴] 테스트`, function () {
       new LightOffCommand(lightKitchen),
     ];
 
+    // 인보커에 커멘드 구상 클래스 등록
     invoker.setCommand(
       2,
       new MacroCommand(commandOn),
