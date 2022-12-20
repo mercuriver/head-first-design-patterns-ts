@@ -1,23 +1,9 @@
 import { expect } from "chai";
 
-import Duck from "./interfaces/Duck";
-import Turkey from "./interfaces/Turkey";
-
 import { MallardDuck, WildTurkey } from "./birds";
-import { duckMessages, turkeyMessages } from "./index.meta";
+import TurkeyAdapter from "./TurkeyAdapter";
 
-class TurkeyAdapter implements Duck {
-  #turkey;
-  constructor(turkey: Turkey) {
-    this.#turkey = turkey;
-  }
-  quack(): string {
-    return this.#turkey.gobble();
-  }
-  fly(): string {
-    return this.#turkey.fly();
-  }
-}
+import { duckMessages, turkeyMessages } from "./index.meta";
 
 describe(`[어댑터 패턴] 테스트`, function () {
   let seq = 1;
