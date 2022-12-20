@@ -1,7 +1,7 @@
 import { expect } from "chai";
 
 import { MallardDuck, WildTurkey } from "./birds";
-import TurkeyAdapter from "./TurkeyAdapter";
+import { DuckAdapter, TurkeyAdapter } from "./adapter";
 
 import { duckMessages, turkeyMessages } from "./index.meta";
 

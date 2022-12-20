@@ -1,5 +1,5 @@
-import Duck from "./interfaces/Duck";
-import Turkey from "./interfaces/Turkey";
+import Duck from "../interfaces/Duck";
+import Turkey from "../interfaces/Turkey";
 
 class TurkeyAdapter implements Duck {
   #turkey;
