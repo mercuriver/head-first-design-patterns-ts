@@ -3,25 +3,8 @@ import { expect } from "chai";
 import Duck from "./interfaces/Duck";
 import Turkey from "./interfaces/Turkey";
 
+import { MallardDuck, WildTurkey } from "./birds";
 import { duckMessages, turkeyMessages } from "./index.meta";
-
-class MallardDuck implements Duck {
-  quack(): string {
-    return duckMessages.quack;
-  }
-  fly(): string {
-    return duckMessages.fly;
-  }
-}
-
-class WildTurkey implements Turkey {
-  gobble(): string {
-    return turkeyMessages.gobble;
-  }
-  fly(): string {
-    return turkeyMessages.fly;
-  }
-}
 
 class TurkeyAdapter implements Duck {
   #turkey;
