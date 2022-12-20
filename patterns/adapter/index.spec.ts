@@ -10,7 +10,6 @@ describe(`[어댑터 패턴] 테스트`, function () {
 
   const duck = new MallardDuck();
   const turkey = new WildTurkey();
-  const turkeyAdapter = new TurkeyAdapter(turkey);
 
   it(`[${seq++}] duck 초기값 확인`, function () {
     expect(duck.quack()).to.equal(duckMessages.quack);
@@ -22,8 +21,16 @@ describe(`[어댑터 패턴] 테스트`, function () {
     expect(turkey.fly()).to.equal(turkeyMessages.fly);
   });
 
-  it(`[${seq++}] turkeyAdapter 인터페이스 호환 테스트`, function () {
+  const turkeyAdapter = new TurkeyAdapter(turkey);
+
+  it(`[${seq++}] turkeyAdapter 인터페이스 호환 테스트, turkey를 duck처럼 사용`, function () {
     expect(turkeyAdapter.quack()).to.equal(turkeyMessages.gobble);
     expect(turkeyAdapter.fly()).to.equal(turkeyMessages.fly);
+  });
+
+  const duckAdapter = new DuckAdapter(duck);
+  it(`[${seq++}] duckAdapter 인터페이스 호환 테스트, duck을 turkey처럼 사용`, function () {
+    expect(duckAdapter.gobble()).to.equal(duckMessages.quack);
+    expect(duckAdapter.fly()).to.equal(duckMessages.fly);
   });
 });
