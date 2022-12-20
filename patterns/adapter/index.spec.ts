@@ -1,15 +1,9 @@
 import { expect } from "chai";
+
+import Duck from "./interfaces/Duck";
+import Turkey from "./interfaces/Turkey";
+
 import { duckMessages, turkeyMessages } from "./index.meta";
-
-interface Turkey {
-  gobble(): string;
-  fly(): string;
-}
-
-interface Duck {
-  quack(): string;
-  fly(): string;
-}
 
 class MallardDuck implements Duck {
   quack(): string {
