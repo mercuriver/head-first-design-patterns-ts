@@ -116,6 +116,8 @@
 - [x] [팩토리 패턴 / Factory](./patterns/factory/)
 - [x] [싱글턴 패턴 / Singleton](./patterns/singleton/)
 - [x] [커맨드 패턴 / Command](./patterns/command/)
+- [ ] [어댑터 패턴 / Adapter](./patterns/adapter/)
+- [ ] [퍼사드 패턴 / Facade](./patterns/facade/)
 
 ## 참고 자료
 
