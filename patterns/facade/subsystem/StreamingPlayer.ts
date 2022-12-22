@@ -6,17 +6,22 @@ class StreamingPlayer {
   #amplifier: Amplifier;
   #movie: string;
 
+  #isOn: boolean;
+
   constructor(description: string, amplifier: Amplifier) {
     this.#description = description;
     this.#amplifier = amplifier;
+    this.#isOn = false;
   }
 
   on(): void {
     console.log(this.#description + " on");
+    this.#isOn = true;
   }
 
   off(): void {
     console.log(this.#description + " off");
+    this.#isOn = false;
   }
 
   // method overloading
@@ -69,6 +74,10 @@ class StreamingPlayer {
 
   toString(): string {
     return this.#description;
+  }
+
+  get isOn(): boolean {
+    return this.#isOn;
   }
 }
 

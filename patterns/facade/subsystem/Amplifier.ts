@@ -2,20 +2,28 @@ import StreamingPlayer from "./StreamingPlayer";
 import Tuner from "./Tuner";
 
 class Amplifier {
-  #description: string;
   #tuner: Tuner;
   #player: StreamingPlayer;
 
+  #description: string;
+  #volumn: number;
+  #isOn: boolean;
+
   constructor(description: string) {
     this.#description = description;
+    this.#volumn = 0;
+    this.#isOn = false;
   }
 
   on(): void {
     console.log(this.#description + " on");
+    this.#isOn = true;
   }
 
   off(): void {
     console.log(this.#description + " off");
+    this.#volumn = 0;
+    this.#isOn = false;
   }
 
   setStereoSound(): void {
@@ -30,6 +38,7 @@ class Amplifier {
 
   setVolume(level: number): void {
     console.log(this.#description + " setting volume to " + level);
+    this.#volumn = level;
   }
 
   setTuner(tuner: Tuner): void {
@@ -44,6 +53,14 @@ class Amplifier {
 
   toString(): string {
     return this.#description;
+  }
+
+  get volumn(): number {
+    return this.#volumn;
+  }
+
+  get isOn(): boolean {
+    return this.#isOn;
   }
 }
 
