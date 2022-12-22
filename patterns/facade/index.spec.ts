@@ -15,47 +15,144 @@ class HomeTheaterFacade {
   constructor(...list: any) {
     console.log(list);
   }
+
+  watchMovie(title: string) {}
+  endMovie() {}
 }
 
 describe(`[퍼사드 패턴] 테스트`, function () {
   let seq = 1;
 
-  const amp: Amplifier = new Amplifier("Amplifier");
-  const tuner: Tuner = new Tuner("AM/FM Tuner", amp);
-  const player: StreamingPlayer = new StreamingPlayer("Streaming Player", amp);
-  const cd: CdPlayer = new CdPlayer("CD Player", amp);
-  const projector: Projector = new Projector("Projector", player);
-  const lights: TheaterLights = new TheaterLights("Theater Ceiling Lights");
-  const screen: Screen = new Screen("Theater Screen");
-  const popper: PopcornPopper = new PopcornPopper("Popcorn Popper");
+  const movie = "Whiplash";
 
-  describe(`서브시스템 직접 제어 테스트`, function () {
-    it(`[${seq++}] 서브시스템, 초기값 확인`, function () {
-      console.log("초기값 확인");
-    });
+  const getSubsystem = () => {
+    const amp: Amplifier = new Amplifier("Amplifier");
+    const tuner: Tuner = new Tuner("AM/FM Tuner", amp);
+    const player: StreamingPlayer = new StreamingPlayer(
+      "Streaming Player",
+      amp
+    );
+    const cd: CdPlayer = new CdPlayer("CD Player", amp);
+    const projector: Projector = new Projector("Projector", player);
+    const lights: TheaterLights = new TheaterLights("Theater Ceiling Lights");
+    const screen: Screen = new Screen("Theater Screen");
+    const popper: PopcornPopper = new PopcornPopper("Popcorn Popper");
 
-    it(`[${seq++}] 서브시스템, 직접 On 상태로 제어`, function () {});
+    const checkIsDefaultMode = () => {
+      expect(popper.isOn).to.be.false;
+      expect(lights.level).to.equal(0);
+      expect(screen.isUp).to.be.true;
+      expect(projector.isOn).to.be.false;
+      expect(amp.isOn).to.be.false;
+      expect(amp.volumn).to.equal(0);
+      expect(player.isOn).to.false;
+    };
 
-    it(`[${seq++}] 서브시스템, 직접 Off 상태로 제어`, function () {});
-  });
+    const checkIsWatchMovieMode = () => {
+      expect(popper.isOn).to.be.true;
+      expect(lights.level).to.equal(10);
+      expect(screen.isUp).to.be.false;
+      expect(projector.isOn).to.be.true;
+      expect(amp.isOn).to.be.true;
+      expect(amp.volumn).to.equal(5);
+      expect(player.isOn).to.true;
+    };
 
-  describe(`파사드 홈시어터 제어 테스트`, function () {
-    const homeTheater: HomeTheaterFacade = new HomeTheaterFacade(
+    const checkIsEndMovieMode = () => {
+      expect(popper.isOn).to.be.false;
+      expect(lights.level).to.equal(100);
+      expect(screen.isUp).to.be.true;
+      expect(projector.isOn).to.be.false;
+      expect(amp.isOn).to.be.false;
+      expect(amp.volumn).to.equal(0);
+      expect(player.isOn).to.false;
+    };
+
+    return {
       amp,
       tuner,
       player,
+      cd,
       projector,
-      screen,
       lights,
-      popper
-    );
+      screen,
+      popper,
+      checker: {
+        checkIsDefaultMode,
+        checkIsWatchMovieMode,
+        checkIsEndMovieMode,
+      },
+    };
+  };
 
-    it(`[${seq++}] 파사드 홈시어터, 초기값 확인`, function () {
+  describe(`서브시스템 직접 제어 테스트`, function () {
+    const {
+      amp,
+      tuner,
+      player,
+      cd,
+      projector,
+      lights,
+      screen,
+      popper,
+      checker,
+    } = getSubsystem();
+
+    it(`[${seq++}] 서브시스템, 초기값 확인`, function () {
       console.log("초기값 확인");
+      checker.checkIsDefaultMode();
     });
 
-    it(`[${seq++}] 파사드 홈시어터, On 상태로 제어`, function () {});
+    it(`[${seq++}] 서브시스템 직접 제어하여 영화 시청`, function () {
+      popper.on();
+      popper.pop();
+      lights.dim(10);
+      screen.down();
+      projector.on();
+      projector.wideScreenMode();
+      amp.on();
+      amp.setStreamingPlayer(player);
+      amp.setSurroundSound();
+      amp.setVolume(5);
+      player.on();
+      player.play(movie);
 
-    it(`[${seq++}] 파사드 홈시어터, Off 상태로 제어`, function () {});
+      checker.checkIsWatchMovieMode();
+    });
+
+    it(`[${seq++}] 서브시스템을 직접 제어하여 영화 종료`, function () {
+      popper.off();
+      lights.on();
+      screen.up();
+      projector.off();
+      amp.off();
+      player.stop();
+      player.off();
+
+      checker.checkIsEndMovieMode();
+    });
   });
+
+  // describe(`파사드 홈시어터 제어 테스트`, function () {
+  //   const homeTheater: HomeTheaterFacade = new HomeTheaterFacade(
+  //     amp,
+  //     tuner,
+  //     player,
+  //     projector,
+  //     screen,
+  //     lights,
+  //     popper
+  //   );
+
+  //   it(`[${seq++}] 파사드 홈시어터, 초기값 확인`, function () {
+  //     console.log("초기값 확인");
+  //   });
+
+  //   it(`[${seq++}] 파사드 홈시어터를 통한 영화 시청 요청`, function () {
+  //     homeTheater.watchMovie(movie);
+  //     homeTheater.endMovie();
+  //   });
+
+  //   it(`[${seq++}] 파사드 홈시어터를 통한 영화 종료 요청`, function () {});
+  // });
 });
