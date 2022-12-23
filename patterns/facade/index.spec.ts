@@ -69,14 +69,16 @@ describe(`[퍼사드 패턴] 테스트`, function () {
     };
 
     return {
-      amp,
-      tuner,
-      player,
-      cd,
-      projector,
-      lights,
-      screen,
-      popper,
+      subsystem: {
+        amp,
+        tuner,
+        player,
+        cd,
+        projector,
+        lights,
+        screen,
+        popper,
+      },
       checker: {
         checkIsDefaultMode,
         checkIsWatchMovieMode,
@@ -87,14 +89,7 @@ describe(`[퍼사드 패턴] 테스트`, function () {
 
   describe(`서브시스템 직접 제어 테스트`, function () {
     const {
-      amp,
-      tuner,
-      player,
-      cd,
-      projector,
-      lights,
-      screen,
-      popper,
+      subsystem: { amp, tuner, player, cd, projector, lights, screen, popper },
       checker,
     } = getSubsystem();
 
