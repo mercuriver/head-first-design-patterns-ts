@@ -11,14 +11,7 @@ import {
   PopcornPopper,
 } from "./subsystem";
 
-class HomeTheaterFacade {
-  constructor(...list: any) {
-    console.log(list);
-  }
-
-  watchMovie(title: string) {}
-  endMovie() {}
-}
+import HomeTheaterFacade from "./HomeTheaterFacade";
 
 describe(`[퍼사드 패턴] 테스트`, function () {
   let seq = 1;
@@ -128,26 +121,23 @@ describe(`[퍼사드 패턴] 테스트`, function () {
     });
   });
 
-  // describe(`파사드 홈시어터 제어 테스트`, function () {
-  //   const homeTheater: HomeTheaterFacade = new HomeTheaterFacade(
-  //     amp,
-  //     tuner,
-  //     player,
-  //     projector,
-  //     screen,
-  //     lights,
-  //     popper
-  //   );
+  describe(`파사드 홈시어터 제어 테스트`, function () {
+    const { subsystem, checker } = getSubsystem();
+    const homeTheater: HomeTheaterFacade = new HomeTheaterFacade(subsystem);
 
-  //   it(`[${seq++}] 파사드 홈시어터, 초기값 확인`, function () {
-  //     console.log("초기값 확인");
-  //   });
+    it(`[${seq++}] 파사드 홈시어터, 초기값 확인`, function () {
+      console.log("초기값 확인");
+      checker.checkIsDefaultMode();
+    });
 
-  //   it(`[${seq++}] 파사드 홈시어터를 통한 영화 시청 요청`, function () {
-  //     homeTheater.watchMovie(movie);
-  //     homeTheater.endMovie();
-  //   });
+    it(`[${seq++}] 파사드 홈시어터를 통한 영화 시청 요청`, function () {
+      homeTheater.watchMovie(movie);
+      checker.checkIsWatchMovieMode();
+    });
 
-  //   it(`[${seq++}] 파사드 홈시어터를 통한 영화 종료 요청`, function () {});
-  // });
+    it(`[${seq++}] 파사드 홈시어터를 통한 영화 종료 요청`, function () {
+      homeTheater.endMovie();
+      checker.checkIsEndMovieMode();
+    });
+  });
 });
