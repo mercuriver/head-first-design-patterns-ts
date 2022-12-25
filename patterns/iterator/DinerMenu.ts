@@ -14,32 +14,37 @@ class DinerMenu implements Menu<MenuItem> {
 
     this.#numberOfItems = 0;
 
-    addItem(
+    this.addItem(
       "Vegetarian BLT",
       "(Fakin') Bacon with lettuce & tomato on whole wheat",
       true,
       2.99
     );
-    addItem("BLT", "Bacon with lettuce & tomato on whole wheat", false, 2.99);
-    addItem(
+    this.addItem(
+      "BLT",
+      "Bacon with lettuce & tomato on whole wheat",
+      false,
+      2.99
+    );
+    this.addItem(
       "Soup of the day",
       "Soup of the day, with a side of potato salad",
       false,
       3.29
     );
-    addItem(
+    this.addItem(
       "Hotdog",
       "A hot dog, with sauerkraut, relish, onions, topped with cheese",
       false,
       3.05
     );
-    addItem(
+    this.addItem(
       "Steamed Veggies and Brown Rice",
       "A medly of steamed vegetables over brown rice",
       true,
       3.99
     );
-    addItem(
+    this.addItem(
       "Pasta",
       "Spaghetti with Marinara Sauce, and a slice of sourdough bread",
       true,
