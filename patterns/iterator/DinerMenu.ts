@@ -1,4 +1,4 @@
-import Iterator from "./Iterator";
+import CustomIterator from "./CustomIterator";
 import Menu from "./Menu";
 import MenuItem from "./MenuItem";
 
@@ -63,12 +63,12 @@ class DinerMenu implements Menu<MenuItem> {
     }
   }
 
-  createIterator(): Iterator<MenuItem> {
-    return null;
+  get menuItems(): MenuItem[] {
+    return this.#menuItems;
   }
 
-  getMenuItems(): MenuItem[] {
-    return this.#menuItems;
+  createIterator(): CustomIterator<MenuItem> {
+    return null;
   }
 }
 
