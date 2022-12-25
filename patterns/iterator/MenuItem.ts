@@ -4,7 +4,7 @@ class MenuItem {
   #vegetarian: boolean;
   #price: number;
 
-  constuctor(
+  constructor(
     name: string,
     description: string,
     vegetarian: boolean,
