@@ -1,4 +1,4 @@
-import CustomIterator from "./CustomIterator";
+import CustomIterator from "../IteratorInterface/CustomIterator";
 
 interface Menu<T> {
   createIterator(): CustomIterator<T>;

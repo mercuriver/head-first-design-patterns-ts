@@ -1,6 +1,7 @@
-import CustomIterator from "./CustomIterator";
-import Menu from "./Menu";
-import MenuItem from "./MenuItem";
+import CustomIterator from "../IteratorInterface/CustomIterator";
+
+import Menu from "../AggregateInterface/Menu";
+import MenuItem from "../MenuItem";
 
 class PancakeHouseMenu implements Menu<MenuItem> {
   #menuItems: Set<MenuItem>;
