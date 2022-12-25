@@ -5,7 +5,7 @@ class DinerMenuIterator implements CustomIterator {
   #items: MenuItem[];
   #position: number;
 
-  DinerMenuIterator(items: MenuItem[]) {
+  constructor(items: MenuItem[]) {
     this.#items = items;
     this.#position = 0;
   }
