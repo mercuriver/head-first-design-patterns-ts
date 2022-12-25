@@ -1,7 +1,7 @@
 import CustomIterator from "../IteratorInterface/CustomIterator";
 import MenuItem from "../MenuItem";
 
-class DinerMenuIterator implements CustomIterator<MenuItem> {
+class DinerMenuIterator implements CustomIterator {
   #items: MenuItem[];
   #position: number;
 

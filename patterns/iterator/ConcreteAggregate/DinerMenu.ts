@@ -5,7 +5,7 @@ import MenuItem from "../MenuItem";
 
 const MAX_ITEMS = 6;
 
-class DinerMenu implements Menu<MenuItem> {
+class DinerMenu implements Menu {
   static final: number;
   #numberOfItems: number;
   #menuItems: MenuItem[];

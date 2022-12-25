@@ -1,7 +1,7 @@
 import CustomIterator from "../IteratorInterface/CustomIterator";
 
-interface Menu<T> {
-  createIterator(): CustomIterator<T>;
+interface Menu {
+  createIterator(): CustomIterator;
 }
 
 export default Menu;

@@ -1,6 +1,7 @@
-interface CustomIterator<T> {
+import MenuItem from "../MenuItem";
+interface CustomIterator {
   hasNext(): boolean;
-  next(): T;
+  next(): MenuItem;
 }
 
 export default CustomIterator;

@@ -1,7 +1,7 @@
 import CustomIterator from "../IteratorInterface/CustomIterator";
 import MenuItem from "../MenuItem";
 
-class PancakeHouseMenuIterator implements CustomIterator<MenuItem> {
+class PancakeHouseMenuIterator implements CustomIterator {
   #items: Set<MenuItem>;
 
   constructor(items: Set<MenuItem>) {
