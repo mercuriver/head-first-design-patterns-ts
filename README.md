@@ -118,6 +118,10 @@
 
 먼저 연락하지 마세요. 저희가 연락 드리겠습니다. (p.332)
 
+### [9] 단일 역할 원칙
+
+어떤 클래스가 바뀌는 이유는 하나뿐이어야 한다. (p.374)
+
 <hr />
 
 ## 작성한 디자인 패턴
@@ -130,7 +134,8 @@
 - [x] [커맨드 패턴 / Command](./patterns/command/)
 - [ ] [어댑터 패턴 / Adapter](./patterns/adapter/)
 - [ ] [퍼사드 패턴 / Facade](./patterns/facade/)
-- [ ] [탬플릿 메소드 패턴 / Template Method](./templatemethod)
+- [ ] [탬플릿 메소드 패턴 / Template Method](./patterns/templatemethod)
+- [ ] [반복자 패턴 / Iterator](./patterns/iterator/)
 
 ## 참고 자료
 
