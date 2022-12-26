@@ -2,7 +2,10 @@ import CustomIterator from "../IteratorInterface/CustomIterator";
 
 import Menu from "../AggregateInterface/Menu";
 import MenuItem from "../MenuItem";
+
 import { PancakeHouseMenuIterator } from "../ConcreteIterator";
+
+import { pancakeHouseMenuName } from "../index.meta";
 
 class PancakeHouseMenu implements Menu {
   #menuItems: Set<MenuItem>;
@@ -11,28 +14,28 @@ class PancakeHouseMenu implements Menu {
     this.#menuItems = new Set<MenuItem>();
 
     this.addItem(
-      "K&B's Pancake Breakfast",
+      pancakeHouseMenuName.KBS_PANCAKE_BREAKFAST,
       "Pancakes with scrambled eggs, and toast",
       true,
       2.99
     );
 
     this.addItem(
-      "Regular Pancake Breakfast",
+      pancakeHouseMenuName.REGULAR_PANCAKE_BREAKFAST,
       "Pancakes with fried eggs, sausage",
       false,
       2.99
     );
 
     this.addItem(
-      "Blueberry Pancakes",
+      pancakeHouseMenuName.BLUEBERRY_PANCAKES,
       "Pancakes made with fresh blueberries, and blueberry syrup",
       true,
       3.49
     );
 
     this.addItem(
-      "Waffles",
+      pancakeHouseMenuName.WAFFLES,
       "Waffles, with your choice of blueberries or strawberries",
       true,
       3.59

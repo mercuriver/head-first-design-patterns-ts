@@ -5,6 +5,8 @@ import MenuItem from "../MenuItem";
 
 import { DinerMenuIterator } from "../ConcreteIterator";
 
+import { dinerMenuName } from "../index.meta";
+
 const MAX_ITEMS = 6;
 
 class DinerMenu implements Menu {
@@ -17,37 +19,37 @@ class DinerMenu implements Menu {
     this.#numberOfItems = 0;
 
     this.addItem(
-      "Vegetarian BLT",
+      dinerMenuName.VEGETARIAN_BLT,
       "(Fakin') Bacon with lettuce & tomato on whole wheat",
       true,
       2.99
     );
     this.addItem(
-      "BLT",
+      dinerMenuName.BLT,
       "Bacon with lettuce & tomato on whole wheat",
       false,
       2.99
     );
     this.addItem(
-      "Soup of the day",
+      dinerMenuName.SOUP_OF_THE_DAY,
       "Soup of the day, with a side of potato salad",
       false,
       3.29
     );
     this.addItem(
-      "Hotdog",
+      dinerMenuName.HOTDOG,
       "A hot dog, with sauerkraut, relish, onions, topped with cheese",
       false,
       3.05
     );
     this.addItem(
-      "Steamed Veggies and Brown Rice",
+      dinerMenuName.STEAMED_VEGGIES_AND_BROWN_RICE,
       "A medly of steamed vegetables over brown rice",
       true,
       3.99
     );
     this.addItem(
-      "Pasta",
+      dinerMenuName.PASTA,
       "Spaghetti with Marinara Sauce, and a slice of sourdough bread",
       true,
       3.89
