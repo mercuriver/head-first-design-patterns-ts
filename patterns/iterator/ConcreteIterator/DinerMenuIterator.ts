@@ -8,6 +8,9 @@ class DinerMenuIterator implements CustomIterator {
   constructor(items: MenuItem[]) {
     this.#items = items;
     this.#position = 0;
+
+    // console.log("######## DinerMenuIterator");
+    // items.map((item) => console.log(item.toString()));
   }
 
   next(): MenuItem {

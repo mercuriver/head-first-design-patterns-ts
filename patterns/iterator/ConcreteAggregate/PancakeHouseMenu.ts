@@ -2,6 +2,7 @@ import CustomIterator from "../IteratorInterface/CustomIterator";
 
 import Menu from "../AggregateInterface/Menu";
 import MenuItem from "../MenuItem";
+import { PancakeHouseMenuIterator } from "../ConcreteIterator";
 
 class PancakeHouseMenu implements Menu {
   #menuItems: Set<MenuItem>;
@@ -53,7 +54,7 @@ class PancakeHouseMenu implements Menu {
   }
 
   createIterator(): CustomIterator {
-    return null;
+    return new PancakeHouseMenuIterator(this.#menuItems);
   }
 }
 

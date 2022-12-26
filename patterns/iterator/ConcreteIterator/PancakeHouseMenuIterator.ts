@@ -6,10 +6,17 @@ class PancakeHouseMenuIterator implements CustomIterator {
 
   constructor(items: Set<MenuItem>) {
     this.#items = items;
+
+    // console.log("######## PancakeHouseMenuIterator");
+    // for (let item of items.values()) {
+    //   console.log(item.toString());
+    // }
   }
 
   next(): MenuItem {
-    return null;
+    const [next] = this.#items;
+    this.#items.delete(next);
+    return next;
   }
 
   hasNext(): boolean {

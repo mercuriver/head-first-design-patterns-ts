@@ -24,6 +24,7 @@ class Waitress {
   #printMenu(iterator: CustomIterator): void {
     while (iterator.hasNext()) {
       const menuItem = iterator.next();
+
       console.log(
         `${menuItem.name}, ${menuItem.price} -- ${menuItem.description}`
       );
@@ -33,6 +34,18 @@ class Waitress {
   printVegetarianMenu(): void {
     this.#printVegetarianMenu(this.#pancakeHouseMenu.createIterator());
     this.#printVegetarianMenu(this.#dinerMenu.createIterator());
+  }
+
+  #printVegetarianMenu(iterator: CustomIterator): void {
+    while (iterator.hasNext()) {
+      const menuItem = iterator.next();
+
+      if (menuItem.isVegetarian()) {
+        console.log(
+          `${menuItem.name}, ${menuItem.price} -- ${menuItem.description}`
+        );
+      }
+    }
   }
 
   isItemVegetarian(name: string): boolean {
@@ -46,17 +59,6 @@ class Waitress {
       return true;
     }
     return false;
-  }
-
-  #printVegetarianMenu(iterator: CustomIterator): void {
-    while (iterator.hasNext()) {
-      const menuItem = iterator.next();
-      if (menuItem.isVegetarian()) {
-        console.log(
-          `${menuItem.name}, ${menuItem.price} -- ${menuItem.description}`
-        );
-      }
-    }
   }
 
   #isVegetarian(name: string, iterator: CustomIterator): boolean {

@@ -3,6 +3,8 @@ import CustomIterator from "../IteratorInterface/CustomIterator";
 import Menu from "../AggregateInterface/Menu";
 import MenuItem from "../MenuItem";
 
+import { DinerMenuIterator } from "../ConcreteIterator";
+
 const MAX_ITEMS = 6;
 
 class DinerMenu implements Menu {
@@ -73,7 +75,7 @@ class DinerMenu implements Menu {
   }
 
   createIterator(): CustomIterator {
-    return null;
+    return new DinerMenuIterator(this.#menuItems);
   }
 }
 
