@@ -35,6 +35,9 @@ describe(`[반복자 패턴] 테스트`, function () {
 
   it(`[${seq++}] 베지테리언 메뉴 체크`, function () {
     expect(waitress.vegetarianMenu).to.eql([
+      pancakeHouseMenuName.KBS_PANCAKE_BREAKFAST,
+      pancakeHouseMenuName.BLUEBERRY_PANCAKES,
+      pancakeHouseMenuName.WAFFLES,
       dinerMenuName.VEGETARIAN_BLT,
       dinerMenuName.STEAMED_VEGGIES_AND_BROWN_RICE,
       dinerMenuName.PASTA,
@@ -44,7 +47,7 @@ describe(`[반복자 패턴] 테스트`, function () {
   it(`[${seq++}] 단일 메뉴 베지테리언 체크: ${
     pancakeHouseMenuName.WAFFLES
   }`, function () {
-    expect(waitress.isItemVegetarian(pancakeHouseMenuName.WAFFLES)).to.be.false;
+    expect(waitress.isItemVegetarian(pancakeHouseMenuName.WAFFLES)).to.be.true;
   });
 
   it(`[${seq++}] 단일 메뉴 베지테리언 체크: ${
