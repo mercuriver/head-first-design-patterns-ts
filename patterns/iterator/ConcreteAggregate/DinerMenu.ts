@@ -11,8 +11,7 @@ class DinerMenu implements Menu {
   #menuItems: MenuItem[];
 
   constructor() {
-    this.#menuItems = new MenuItem[MAX_ITEMS]();
-
+    this.#menuItems = [];
     this.#numberOfItems = 0;
 
     this.addItem(
@@ -73,7 +72,7 @@ class DinerMenu implements Menu {
     return this.#menuItems;
   }
 
-  createIterator(): CustomIterator<MenuItem> {
+  createIterator(): CustomIterator {
     return null;
   }
 }

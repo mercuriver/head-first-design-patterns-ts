@@ -52,7 +52,7 @@ class PancakeHouseMenu implements Menu {
     return this.#menuItems;
   }
 
-  createIterator(): CustomIterator<MenuItem> {
+  createIterator(): CustomIterator {
     return null;
   }
 }
