@@ -10,42 +10,38 @@ class Waitress {
     this.#dinerMenu = dinerMenu;
   }
 
-  printMenu(): void {
-    const pancakeIterator = this.#pancakeHouseMenu.createIterator();
-    const dinerIterator = this.#dinerMenu.createIterator();
-
-    console.log("MENU\n----\nBREAKFAST");
-    this.#printMenu(pancakeIterator);
-
-    console.log("\nLUNCH");
-    this.#printMenu(dinerIterator);
+  get menu(): string[] {
+    return [
+      ...this.#parseMenu(this.#pancakeHouseMenu.createIterator()),
+      ...this.#parseMenu(this.#dinerMenu.createIterator()),
+    ];
   }
 
-  #printMenu(iterator: CustomIterator): void {
+  #parseMenu(iterator: CustomIterator): string[] {
+    const menu = [];
     while (iterator.hasNext()) {
       const menuItem = iterator.next();
-
-      console.log(
-        `${menuItem.name}, ${menuItem.price} -- ${menuItem.description}`
-      );
+      menu.push(menuItem.name);
     }
+    return menu;
   }
 
-  printVegetarianMenu(): void {
-    this.#printVegetarianMenu(this.#pancakeHouseMenu.createIterator());
-    this.#printVegetarianMenu(this.#dinerMenu.createIterator());
+  get vegetarianMenu(): string[] {
+    return [
+      ...this.#parseVegetarianMenu(this.#pancakeHouseMenu.createIterator()),
+      ...this.#parseVegetarianMenu(this.#dinerMenu.createIterator()),
+    ];
   }
 
-  #printVegetarianMenu(iterator: CustomIterator): void {
+  #parseVegetarianMenu(iterator: CustomIterator): string[] {
+    const menu = [];
     while (iterator.hasNext()) {
       const menuItem = iterator.next();
-
       if (menuItem.isVegetarian()) {
-        console.log(
-          `${menuItem.name}, ${menuItem.price} -- ${menuItem.description}`
-        );
+        menu.push(menuItem.name);
       }
     }
+    return menu;
   }
 
   isItemVegetarian(name: string): boolean {
