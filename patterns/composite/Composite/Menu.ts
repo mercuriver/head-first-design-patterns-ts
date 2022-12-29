@@ -42,3 +42,5 @@ class Menu extends MenuComponent {
     });
   }
 }
+
+export default Menu;
