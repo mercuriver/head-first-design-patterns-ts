@@ -1,5 +1,13 @@
 import State from "../State";
 
+import {
+  SoldOutState,
+  NoQuarterState,
+  HasQuarterState,
+  SoldState,
+  WinnerState,
+} from "../ConcreteState";
+
 class GumballMachine {
   #soldOutState: State;
   #noQuarterState: State;
@@ -11,19 +19,18 @@ class GumballMachine {
   #count: number;
 
   GumballMachine(numberGumballs: number) {
-    // this.#soldOutState = new SoldOutState(this);
-    // this.#noQuarterState = new NoQuarterState(this);
-    // this.#hasQuarterState = new HasQuarterState(this);
-    // this.#soldState = new SoldState(this);
-    // this.#winnerState = new WinnerState(this);
+    this.#soldOutState = new SoldOutState(this);
+    this.#noQuarterState = new NoQuarterState(this);
+    this.#hasQuarterState = new HasQuarterState(this);
+    this.#soldState = new SoldState(this);
+    this.#winnerState = new WinnerState(this);
 
-    // this.#state = soldOutState;
-    this.#state = null;
+    this.#state = this.#soldOutState;
     this.#count = numberGumballs;
 
-    // if (numberGumballs > 0) {
-    // 	this.#state = noQuarterState;
-    // }
+    if (numberGumballs > 0) {
+      this.#state = this.#noQuarterState;
+    }
   }
 
   insertQuarter(): void {
