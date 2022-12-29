@@ -35,10 +35,12 @@ class MenuItem extends MenuComponent {
     return this.#vegetarian;
   }
 
-  print(): string {
-    return `  ${this.name}${this.isVegetarian() ? "(v)" : ""}, ${
-      this.price
-    }     -- ${this.description}`;
+  print(): string[] {
+    return [
+      `  ${this.name}${this.isVegetarian() ? "(v)" : ""}, ${
+        this.price
+      }     -- ${this.description}`,
+    ];
   }
 }
 

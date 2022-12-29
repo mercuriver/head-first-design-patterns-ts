@@ -22,7 +22,7 @@ abstract class MenuComponent {
     throw new SyntaxError("Unsupported operation.");
   }
 
-  print(): void {
+  print(): string[] {
     throw new SyntaxError("Unsupported operation.");
   }
 }
