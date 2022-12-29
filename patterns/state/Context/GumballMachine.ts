@@ -18,7 +18,7 @@ class GumballMachine {
   #state: State;
   #count: number;
 
-  GumballMachine(numberGumballs: number) {
+  constructor(numberGumballs: number) {
     this.#soldOutState = new SoldOutState(this);
     this.#noQuarterState = new NoQuarterState(this);
     this.#hasQuarterState = new HasQuarterState(this);
@@ -103,6 +103,7 @@ class GumballMachine {
     }
     result.push("\n");
     result.push("Machine is " + this.#state + "\n");
+
     return result.join("");
   }
 }
