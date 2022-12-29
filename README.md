@@ -136,6 +136,8 @@
 - [ ] [퍼사드 패턴 / Facade](./patterns/facade/)
 - [ ] [탬플릿 메소드 패턴 / Template Method](./patterns/templatemethod)
 - [ ] [반복자 패턴 / Iterator](./patterns/iterator/)
+- [ ] [컴포지트 패턴 / Composite](./patterns/composite/)
+- [ ] [상태 패턴 / State](./patterns/state/)
 
 ## 참고 자료
 
