@@ -1,10 +1,6 @@
 import { expect } from "chai";
 
-class GumballMachine {
-  constructor(token: number) {}
-  insertQuarter() {}
-  turnCrank() {}
-}
+import GumballMachine from "./Context/GumballMachine";
 
 describe(`[상태 패턴] 테스트`, function () {
   let seq = 1;
@@ -15,40 +11,40 @@ describe(`[상태 패턴] 테스트`, function () {
 
   const gumballMachine = new GumballMachine(10);
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
   gumballMachine.insertQuarter();
   gumballMachine.turnCrank();
 
-  console.log(gumballMachine);
+  console.log(gumballMachine.toString());
 });
